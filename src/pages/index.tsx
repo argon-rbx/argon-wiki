@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import { useColorMode } from "@docusaurus/theme-common";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import Layout from "@theme/Layout";
 import Features from "@site/src/components/Features";
@@ -15,11 +16,10 @@ import styles from "./index.module.css";
 
 function Header() {
   const { siteConfig } = useDocusaurusContext();
+  const { colorMode } = useColorMode();
 
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
-      <div className={styles.dimmer} />
-
       <BrowserOnly>
         {() => {
           const { width } = useWindowDimensions();
@@ -33,17 +33,26 @@ function Header() {
           }
 
           return (
-            <ReactPlayer
-              className={styles.player}
-              ref={(ref) => (player = ref)}
-              url={"https://www.youtube.com/watch?v=eAvXhNlO-rA"}
-              playing={true}
-              muted={true}
-              loop={true}
-              width={width}
-              height={width * 2}
-              onProgress={onProgress}
-            />
+            <>
+              <ReactPlayer
+                className={styles.player}
+                ref={(ref) => (player = ref)}
+                url={"https://www.youtube.com/watch?v=eAvXhNlO-rA"}
+                playing={true}
+                muted={true}
+                loop={true}
+                width={width}
+                height={width * 2}
+                onProgress={onProgress}
+              />
+
+              <div
+                className={styles.dimmer}
+                style={{
+                  background: colorMode === "dark" ? "black" : "white",
+                }}
+              />
+            </>
           );
         }}
       </BrowserOnly>
@@ -53,9 +62,20 @@ function Header() {
           <Banner className={styles.banner} height={128} />
         </Heading>
 
-        <p className={clsx("hero__subtitle", styles.subtitle)}>
-          {siteConfig.tagline}
-        </p>
+        <BrowserOnly>
+          {() => {
+            return (
+              <p
+                className="hero__subtitle"
+                style={{
+                  color: colorMode == "dark" ? "white" : "black",
+                }}
+              >
+                {siteConfig.tagline}
+              </p>
+            );
+          }}
+        </BrowserOnly>
 
         <div className={styles.buttons}>
           <Link
