@@ -13,17 +13,17 @@ import useWindowDimensions from "../util/windowDimensions";
 import Banner from "@site/static/img/banner.svg";
 
 import styles from "./index.module.css";
+import Stats from "../components/Stats";
 
 function Header() {
   const { siteConfig } = useDocusaurusContext();
+  const { width } = useWindowDimensions();
   const { colorMode } = useColorMode();
 
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <BrowserOnly>
         {() => {
-          const { width } = useWindowDimensions();
-
           let player: ReactPlayer;
 
           function onProgress(state: OnProgressProps) {
@@ -41,8 +41,8 @@ function Header() {
                 playing={true}
                 muted={true}
                 loop={true}
-                width={width}
-                height={width * 2}
+                width={Math.max(width, 700)}
+                height={Math.max(width, 700)}
                 onProgress={onProgress}
               />
 
@@ -59,7 +59,7 @@ function Header() {
 
       <div className={clsx("container", styles.container)}>
         <Heading as="h1" className="hero__title">
-          <Banner className={styles.banner} height={128} />
+          <Banner className={styles.banner} />
         </Heading>
 
         <BrowserOnly>
@@ -110,6 +110,7 @@ export default function Home(): JSX.Element {
 
       <main>
         <Features />
+        <Stats />
       </main>
     </Layout>
   );

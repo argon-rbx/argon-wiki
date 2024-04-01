@@ -5,10 +5,9 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "Argon",
   tagline: "Full featured tool for Roblox development",
-  favicon: "img/logo.svg",
+  favicon: "img/favicon.png",
 
   url: "https://argon.wiki",
-
   baseUrl: "/",
 
   organizationName: "argon-rbx",
@@ -39,6 +38,7 @@ const config: Config = {
 
   themeConfig: {
     image: "img/logo.svg",
+
     navbar: {
       logo: {
         alt: "Argon Logo",
@@ -58,6 +58,7 @@ const config: Config = {
         },
       ],
     },
+
     footer: {
       links: [
         {
@@ -102,6 +103,13 @@ const config: Config = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Dervex. Built with Docusaurus. Background video by Roblox.`,
     },
+
+    algolia: {
+      appId: "5KSHZ35QHT",
+      apiKey: "86eefe866f9a9656783501b41edc80d5",
+      indexName: "argon",
+    },
+
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
