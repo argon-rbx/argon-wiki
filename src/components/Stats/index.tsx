@@ -1,8 +1,9 @@
 import clsx from "clsx";
 import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
-import AnimatedNumber from "react-animated-numbers";
+import SlotCounter from "react-slot-counter";
 import { useState, useEffect } from "react";
+import formatNumber from "@site/src/util/formatNumber";
 
 type StatItem = {
   id: string;
@@ -47,18 +48,9 @@ function Stat({ title, value }: { title: string; value: any }) {
   return (
     <div className={clsx("col col--4")}>
       <div>
-        <AnimatedNumber
-          includeComma
-          transitions={(index) => ({
-            type: "spring",
-            duration: index / 2,
-          })}
-          animateToNumber={value}
-          fontStyle={{
-            fontSize: 52,
-            fontWeight: "bold",
-            color: "#8278e6",
-          }}
+        <SlotCounter
+          containerClassName={styles.number}
+          value={formatNumber(value)}
         />
       </div>
       <div className="padding-horiz--md padding-bottom--md">
@@ -95,7 +87,7 @@ export default function Stats(): JSX.Element {
   }, []);
 
   return (
-    <section className={styles.features}>
+    <section className={styles.stats}>
       <div className="container">
         <div className="row">
           {StatList.map((props, idx) => (

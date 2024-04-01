@@ -4,26 +4,27 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import { useColorMode } from "@docusaurus/theme-common";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import Layout from "@theme/Layout";
-import Features from "@site/src/components/Features";
 import Heading from "@theme/Heading";
 import ReactPlayer from "react-player";
 import { OnProgressProps } from "react-player/base";
 import useWindowDimensions from "../util/windowDimensions";
 
-import Banner from "@site/static/img/banner.svg";
-
-import styles from "./index.module.css";
+import Features from "../components/Features";
 import Stats from "../components/Stats";
+
+import Banner from "@site/static/img/banner.svg";
+import styles from "./index.module.css";
 
 function Header() {
   const { siteConfig } = useDocusaurusContext();
-  const { width } = useWindowDimensions();
   const { colorMode } = useColorMode();
 
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <BrowserOnly>
         {() => {
+          const { width } = useWindowDimensions();
+
           let player: ReactPlayer;
 
           function onProgress(state: OnProgressProps) {
@@ -63,18 +64,16 @@ function Header() {
         </Heading>
 
         <BrowserOnly>
-          {() => {
-            return (
-              <p
-                className="hero__subtitle"
-                style={{
-                  color: colorMode == "dark" ? "white" : "black",
-                }}
-              >
-                {siteConfig.tagline}
-              </p>
-            );
-          }}
+          {() => (
+            <p
+              className="hero__subtitle"
+              style={{
+                color: colorMode == "dark" ? "white" : "black",
+              }}
+            >
+              {siteConfig.tagline}
+            </p>
+          )}
         </BrowserOnly>
 
         <div className={styles.buttons}>
