@@ -28,6 +28,11 @@ const StatList: StatItem[] = [
     value: 281466776,
   },
   {
+    id: "projects_created",
+    title: "Projects Created",
+    value: 1234,
+  },
+  {
     id: "projects_built",
     title: "Projects Built",
     value: 23053,
@@ -36,11 +41,6 @@ const StatList: StatItem[] = [
     id: "sessions_started",
     title: "Sessions Started",
     value: 26366,
-  },
-  {
-    id: "temp",
-    title: "One more",
-    value: 69420,
   },
 ];
 
