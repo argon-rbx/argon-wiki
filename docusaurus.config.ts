@@ -27,12 +27,34 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          editUrl: "https://github.com/argon-rbx/argon-wiki/tree/main/docs",
+          editUrl: "https://github.com/argon-rbx/argon-wiki/tree/main",
         },
         theme: {
           customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
+    ],
+  ],
+
+  plugins: [
+    [
+      "content-docs",
+      {
+        id: "api",
+        path: "api",
+        routeBasePath: "api",
+        sidebarPath: "./sidebars.ts",
+        editUrl: "https://github.com/argon-rbx/argon-wiki/tree/main",
+      },
+    ],
+    [
+      "content-docs",
+      {
+        id: "changelog",
+        path: "changelog",
+        routeBasePath: "changelog",
+        sidebarPath: "./sidebars.ts",
+      },
     ],
   ],
 
@@ -46,15 +68,25 @@ const config: Config = {
       },
       items: [
         {
-          type: "docSidebar",
-          sidebarId: "docSidebar",
-          position: "left",
           label: "Docs",
+          position: "left",
+          type: "docSidebar",
+          sidebarId: "sidebar",
+        },
+        {
+          label: "API",
+          position: "left",
+          to: "/api/project-format",
+        },
+        {
+          label: "Changelog",
+          position: "left",
+          to: "/changelog/argon",
         },
         {
           href: "https://github.com/argon-rbx",
-          label: "GitHub",
           position: "right",
+          className: "github-link",
         },
       ],
     },
@@ -69,8 +101,17 @@ const config: Config = {
               to: "/docs/intro",
             },
             {
-              label: "CLI",
-              to: "/docs/category/cli",
+              label: "Installation",
+              to: "/docs/installation",
+            },
+          ],
+        },
+        {
+          title: "API",
+          items: [
+            {
+              label: "Project Format",
+              to: "/api/project-format",
             },
           ],
         },

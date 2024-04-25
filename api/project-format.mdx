@@ -1,0 +1,122 @@
+---
+title: Project Format
+sidebar_position: 1
+---
+
+Projects describe how your end Roblox product should look like and how the files along the way should be processed!
+
+## Project File
+
+Argon projects are JSON files that have the `.project.json` extension. They have the following fields:
+
+| Field           | Description                                                                                           | Default      |
+| --------------- | ----------------------------------------------------------------------------------------------------- | ------------ |
+| `name`          | The name of the project, displayed by Argon                                                           | **Required** |
+| `tree`          | An [Instance Description](#instance-description) describing the root instance of the project          | **Required** |
+| `host`          | The host name that Argon server should be running on                                                  | `localhost`  |
+| `port`          | The port number that Argon server should be running on                                                | `8000`       |
+| `gameId`        | Limit Argon clients to only sync with this project when the game ID matches                           | `null`       |
+| `placeIds`      | Limit Argon clients to only sync with this project when one of the place IDs matches                  | `[]`         |
+| `ignoreGlobs`   | Exclude files that match any of these globs from processing and syncing                               | `[]`         |
+| `syncRules`     | Custom set of user-defined [Sync Rules](#sync-rule) that define how files should be processed         | `[]`         |
+| `syncback`      | [Syncback Settings](#syncback-settings) that control how instances are synced back to the file system | `null`       |
+| `legacyScripts` | Use the legacy script run context                                                                     | `true`       |
+
+## Instance Description
+
+Instance Descriptions correspond to the actual Roblox Instances in the project.
+
+| Field           | Description                                                           |
+| --------------- | --------------------------------------------------------------------- |
+| `$className`    | The ClassName of the Instance being described                         |
+| `$path`         | The path on the filesystem that should be the source of this instance |
+| `$properties`   | Properties to apply to the instance                                   |
+| `$keepUnknowns` | Whether instances that Argon doesn't know about should be deleted     |
+
+All other fields in an Instance Description are turned into instances whose name is the key.
+
+:::warning
+Note that you can't set both `$className` and `$path` at the same time!
+:::
+
+## Sync Rule
+
+Sync Rule allows you to define how specific file should be interpreted and how its name should be mapped to the instance name.
+
+| Field          | Description                                                                                                                                                                                                                                                         |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`         | The type of file this rule applies to, valid options are: **Project**, **InstanceData**, **ServerScript**, **ClientScript**, **ModuleScript**, **StringValue**, **LocalizationTable**, **JsonModule**, **TomlModule**, **JsonModel**, **RbxmModel**, **RbxmxModel** |
+| `pattern`      | A glob pattern that matches the file path                                                                                                                                                                                                                           |
+| `childPattern` | A glob pattern that matches folder-contained file path                                                                                                                                                                                                              |
+| `exclude`      | A list of glob patterns that exclude the file path from this rule                                                                                                                                                                                                   |
+| `suffix`       | A suffix to stripe from the file path to get the instance name                                                                                                                                                                                                      |
+
+## Syncback Settings
+
+Syncback Settings allow you to control which instances and properties should be synced back to the file system.
+
+| Setting          | Description                                                         |
+| ---------------- | ------------------------------------------------------------------- |
+| ignoreGlobs      | Exclude files that match any of these globs from processing changes |
+| ignoreNames      | Exclude instances with these names from processing changes          |
+| ignoreClasses    | Exclude instances with these classes from processing changes        |
+| ignoreProperties | Exclude these properties from being saved to the file system        |
+
+## Example Projects
+
+Example project of a plugin or model:
+
+```json
+{
+  "name": "Plugin",
+  "ignoreGlobs": ["**/*.spec.lua"],
+  "tree": {
+    "$path": "src"
+  }
+}
+```
+
+Example project of the game:
+
+```json
+{
+  "name": "Game",
+  "port:": 8080,
+  "gameId": "1234567890",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "$path": "src/Shared",
+
+      "Config": {
+        "$className": "Configuration",
+        "$keepUnknowns": true,
+
+        "StartPos": {
+          "$className": "Vector3Value",
+          "$properties": {
+            "Value": [0, 0, 0]
+          }
+        }
+      }
+    },
+
+    "ServerScriptService": {
+      "$path": "src/Server"
+    },
+
+    "StarterPlayer": {
+      "$properties": {
+        "CharacterWalkSpeed": 24
+      },
+
+      "StarterPlayerScripts": {
+        "$path": "src/Client"
+      }
+    }
+  }
+}
+```
+
+This page is based on Rojo's [Project Format](https://rojo.space/docs/v7/project-format/) as Argon has very similar project structure.
