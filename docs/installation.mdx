@@ -1,7 +1,144 @@
 ---
 sidebar_position: 2
+title: Installation
 ---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 # Installation
 
-TODO
+There are multiple ways to install Argon, all of them are quick and easy!
+
+- Server - the main part of Argon that runs on your computer
+- Client - the Roblox Studio plugin that connects to the server
+
+## Server Installation
+
+No matter which method you choose, you your system `PATH` variable will update automatically
+
+<Tabs>
+
+<TabItem label="VS Code" value="vsc">
+
+#### CLI and VS Code extension
+
+- Search for the `Argon` in the extension tab or go [here](https://marketplace.visualstudio.com/items?itemName=Dervex.argon)
+- Click **Install**
+- Make sure Argon completes installation by pressing <kbd>ctrl</kbd>/<kbd>⌘</kbd> + <kbd>shift</kbd> + <kbd>P</kbd> and selecting `Argon: Open Menu`
+- If there are no error messages you are done!
+
+</TabItem>
+
+<TabItem label="GitHub" value="github">
+
+#### CLI only (recommended way)
+
+- Get the latest executable that matches your platform [here](https://github.com/argon-rbx/argon/releases/latest)
+- Unzip the downloaded archive
+- Run `argon.exe` / `argon`
+- Press <kbd>y</kbd> and done!
+
+</TabItem>
+
+<TabItem label="Aftman" value="aftman">
+
+#### CLI only
+
+Run this command in your terminal:
+
+```bash
+aftman add argon-rbx/argon --global
+```
+
+</TabItem>
+
+<TabItem label="Cargo" value="cargo">
+
+#### CLI only
+
+Run this command in your terminal:
+
+```bash
+cargo install argon-rbx
+```
+
+</TabItem>
+
+</Tabs>
+
+## Client Installation
+
+This is **unrecommended** because if you have completed one of the above Argon installation methods the plugin got installed automatically!
+If you want to continue or you have disabled automatic plugin installation you can install it this way:
+
+<Tabs>
+
+<TabItem label="Roblox Studio" value="studio">
+
+- Open **Toolbox** inside Roblox Studio and go to the **Creator Store**
+- Set filter to **Plugins** and type `Argon`
+- Click on it, press **Install** and done!
+
+</TabItem>
+
+<TabItem label="Creator Hub" value="hub">
+
+- Visit the [store](https://create.roblox.com/store/asset/11263738833/) and click **Get Plugin**
+- Press **Try in Studio** and wait for the Roblox Studio to open
+- Click **Install** and you are done!
+
+</TabItem>
+
+<TabItem label="GitHub" value="github">
+
+- Get the latest plugin model [here](https://github.com/argon-rbx/argon-roblox/releases/latest)
+- Place the **.rbxm** file in `%localappdata%/Roblox/Plugins` if you are on Windows
+- Place the **.rbxm** file in `~/Documents/Roblox/Plugins` if you are on macOS
+- Restart Roblox Studio and you are done!
+
+</TabItem>
+
+<TabItem label="Argon" value="argon">
+
+Run this command in your terminal:
+
+```bash
+argon plugin install
+```
+
+</TabItem>
+
+</Tabs>
+
+## Updating
+
+Argon checks for updates and installs them automatically every time you run it.
+If there is a new version available you will be prompted for confirmation or just notified that the update got installed depending on the settings.
+
+If you skipped custom client installation Roblox Studio plugin will update automatically as well!
+
+You can force check for updates by running:
+
+```bash
+argon update
+```
+
+:::warning
+
+- In order to make plugin update without restarting Roblox Studio you need to enable **Reload plugins on file changed** setting under File > Studio Settings > Directories
+- Automatic updates are only available if you have installed Argon from GitHub or you are using the VS Code extension
+
+:::
+
+## Limitations
+
+Argon has been designed and compiled for:
+
+- Windows (x86 and ARM)
+- macOS (x86 and ARM)
+- Linux (x86)
+
+:::info
+There is no separate binary for Windows ARM but the x86 one works just fine thanks to the Windows' translation layer
+:::
