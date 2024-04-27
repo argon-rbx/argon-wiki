@@ -3,7 +3,7 @@ title: Project Format
 sidebar_position: 1
 ---
 
-Projects describe how your end Roblox product should look like and how the files along the way should be processed!
+Projects describe how the instance tree should look like and how files should be processed along the way!
 
 ## Project File
 
@@ -55,12 +55,12 @@ Sync Rule allows you to define how specific file should be interpreted and how i
 
 Syncback Settings allow you to control which instances and properties should be synced back to the file system.
 
-| Setting          | Description                                                         |
-| ---------------- | ------------------------------------------------------------------- |
-| ignoreGlobs      | Exclude files that match any of these globs from processing changes |
-| ignoreNames      | Exclude instances with these names from processing changes          |
-| ignoreClasses    | Exclude instances with these classes from processing changes        |
-| ignoreProperties | Exclude these properties from being saved to the file system        |
+| Setting            | Description                                                         |
+| ------------------ | ------------------------------------------------------------------- |
+| `ignoreGlobs`      | Exclude files that match any of these globs from processing changes |
+| `ignoreNames`      | Exclude instances with these names from processing changes          |
+| `ignoreClasses`    | Exclude instances with these classes from processing changes        |
+| `ignoreProperties` | Exclude these properties from being saved to the file system        |
 
 ## Example Projects
 
@@ -119,4 +119,4 @@ Example project of the game:
 }
 ```
 
-This page is based on Rojo's [Project Format](https://rojo.space/docs/v7/project-format/) as Argon has very similar project structure.
+> This page is based on Rojo's [Project Format](https://rojo.space/docs/v7/project-format/) as Argon has very similar project structure.

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ReactMarkdown from "react-markdown";
+import Markdown from "react-markdown";
 
 const DUMMY_CHANGELOG = `# Changelog
 
@@ -48,5 +48,5 @@ export default function Changelog({ link }: { link: string }) {
     .then((response) => response.text())
     .then((text) => setState(text));
 
-  return <ReactMarkdown children={state} />;
+  return <Markdown>{state}</Markdown>;
 }

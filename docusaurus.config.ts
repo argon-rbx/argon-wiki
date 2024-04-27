@@ -21,6 +21,12 @@ const config: Config = {
     locales: ["en"],
   },
 
+  markdown: {
+    mermaid: true,
+  },
+
+  themes: ["@docusaurus/theme-mermaid"],
+
   presets: [
     [
       "classic",
@@ -77,11 +83,13 @@ const config: Config = {
           label: "API",
           position: "left",
           to: "/api/project-format",
+          activeBaseRegex: `/api/`,
         },
         {
           label: "Changelog",
           position: "left",
           to: "/changelog/argon",
+          activeBaseRegex: `/changelog/`,
         },
         {
           href: "https://github.com/argon-rbx",
@@ -112,6 +120,10 @@ const config: Config = {
             {
               label: "Project Format",
               to: "/api/project-format",
+            },
+            {
+              label: "File Types",
+              to: "/api/file-types",
             },
           ],
         },
@@ -145,15 +157,15 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Dervex. Built with Docusaurus. Background video by Roblox.`,
     },
 
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+    },
+
     algolia: {
       appId: "5KSHZ35QHT",
       apiKey: "86eefe866f9a9656783501b41edc80d5",
       indexName: "argon",
-    },
-
-    prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
 };
