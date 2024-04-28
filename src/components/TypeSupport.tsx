@@ -10,6 +10,12 @@ export default function Changelog() {
     .then((text) => {
       text = text.substring(text.indexOf("Coverage") + 10);
       text = text.substring(0, text.indexOf("##") - 2);
+
+      text = text.replace("rbx_types", "Argon");
+      text = text.replace("rbx_dom_lua", "Plugin");
+      text = text.replace("rbx_xml", "XML");
+      text = text.replace("rbx_binary", "Binary");
+
       text = text.replaceAll("✔", "✅");
       text = text.replaceAll("➖", "⏺️");
       text = text.replaceAll("N/A", "`N/A`");
