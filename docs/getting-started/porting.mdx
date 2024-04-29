@@ -2,3 +2,20 @@
 sidebar_position: 2
 title: Porting an Existing Game
 ---
+
+Learn how to port your existing Roblox game to Argon!
+
+## Porting from Roblox Studio
+
+1. Create an empty Argon project as described in the [Create New Project](./new-project.mdx) guide
+2. Make sure your `*.project.json` file has all services you would like to port included
+3. Open target place in Roblox Studio
+4. Change [Initial Sync Priority](../customization.mdx#argon-plugin) to `Client` in Argon plugin settings
+5. Go back to the project and start [Live Sync](./common-usage.mdx#live-sync)
+6. Connect plugin to the running Argon session
+7. Accept incoming changes from Roblox Studio (CLI only)
+8. Voilà! Your game is now on your file system and you can start coding!
+
+## Porting .rbxl or .rbxlx Files
+
+Not implemented yet.

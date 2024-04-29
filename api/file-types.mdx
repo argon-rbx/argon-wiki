@@ -158,9 +158,13 @@ Any directory on the filesystem will turn into a `Folder` instance with the same
 
 Files with `lua` or `luau` extensions are transformed into the corresponding Roblox script instances:
 
-- Any file ending in `.server.lua(a)` will turn into a `Script` instance.
-- Any file ending in `.client.lua(a)` will turn into a `LocalScript` instance.
-- Any other `.lua(a)` file will turn into a `ModuleScript` instance.
+- Any file ending in `.server.lua(a)` will turn into a `Script` instance
+- Any file ending in `.client.lua(a)` will turn into a `LocalScript` instance
+- Any other `.lua(a)` file will turn into a `ModuleScript` instance
+
+:::tip
+You can disable scripts by adding `--disable` comment at the very beginning of the script source without needing to create special [Data File](#data-file) only for this property!
+:::
 
 :::note
 If the project has [`legacyScripts`](./project-format.mdx#project-file) setting disabled:
@@ -311,9 +315,9 @@ Projects that are intended to be included inside other projects should describe 
 
 File ending with `.data.json` is considered data file which can specify:
 
-- `className`: Sets the `ClassName` of a containing `Folder` instance.
-- `properties`: A map of properties to apply on the instance.
-- `keepUnknowns`: Whether children that Argon doesn't know about should be deleted.
+- `className`: Sets the `ClassName` of a containing `Folder` instance
+- `properties`: A map of properties to apply on the instance
+- `keepUnknowns`: Whether children that Argon doesn't know about should be deleted
 
 ## Limitations
 
