@@ -1,0 +1,225 @@
+---
+sidebar_position: 1
+title: CLI
+---
+
+Learn about Agon command line interface commands!
+
+## Init
+
+Initialize a new Argon project, read more on the [Creating a New Project](../getting-started/new-project.mdx) page.
+
+```bash
+argon init [project] --options
+```
+
+Arguments:
+
+- **project** - path to the new project or its parent folder _(optional)_
+
+Options:
+
+| Short | Long         | Description                                                                                                                                                                                                                                                       |
+| ----- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-T`  | `--template` | Choose the template to use for the project _(default: `place`)_                                                                                                                                                                                                   |
+| `-l`  | `--license`  | License to include in the project, set using [SPDX identifier](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository#searching-github-by-license-type) _(requires `--docs`)_ |
+| `-g`  | `--git`      | Initialize a new Git repository in the project folder                                                                                                                                                                                                             |
+| `-w`  | `--wally`    | Add [Wally](https://wally.run/) manifest to use various packages in the project _(if present in the template)_                                                                                                                                                    |
+| `-d`  | `--docs`     | Include documentation files: README, LICENSE and CHANGELOG _(if present in the template)_                                                                                                                                                                         |
+| `-t`  | `--ts`       | Initialize [roblox-ts](https://roblox-ts.com/) project to use TypeScript language                                                                                                                                                                                 |
+
+## Serve
+
+Start [Live Sync](../getting-started/common-usage.mdx#live-sync) session of the current or selected project.
+
+```bash
+argon serve [project] [session] --options
+```
+
+Arguments:
+
+- **project** - path to the project to serve _(optional)_
+- **session** - name of the session to start _(optional)_
+
+Options:
+
+| Short | Long          | Description                                                         |
+| ----- | ------------- | ------------------------------------------------------------------- |
+| `-H`  | `--host`      | Live sync server host name                                          |
+| `-P`  | `--port`      | Live sync server port                                               |
+| `-s`  | `--sourcemap` | Whether to generate [sourcemap](#sourcemap) every time files change |
+| `-t`  | `--ts`        | Whether to run using [roblox-ts](https://roblox-ts.com/)            |
+
+## Build
+
+[Build](../getting-started/common-usage.mdx#project-building) place or model project into Roblox binary or XML format.
+
+```bash
+argon build [project] [session] --options
+```
+
+Arguments:
+
+- **project** - path to the project to build _(optional)_
+- **session** - name of the session to start _(optional)_
+
+Options:
+
+| Short | Long          | Description                                                                         |
+| ----- | ------------- | ----------------------------------------------------------------------------------- |
+| `-o`  | `--output`    | Where to place built project (defaults to the current directory)                    |
+| `-w`  | `--watch`     | Whether to rebuild project every time files change                                  |
+| `-s`  | `--sourcemap` | Whether to generate [sourcemap](#sourcemap) every time files change                 |
+| `-p`  | `--plugin`    | Whether to put built project into Roblox Studio plugins folder (ignores `--output`) |
+| `-x`  | `--xml`       | Whether to build in XML format (.rbxlx or .rbxmx)                                   |
+| `-t`  | `--ts`        | Whether to build using [roblox-ts](https://roblox-ts.com/)                          |
+
+## Sourcemap
+
+Generate JSON sourcemap of the project. Very useful when using [Luau LSP](https://github.com/JohnnyMorganz/luau-lsp).
+
+```bash
+argon sourcemap [project] [session] --options
+```
+
+Arguments:
+
+- **project** - path to the project to serve _(optional)_
+- **session** - name of the session to start _(optional)_
+
+Options:
+
+| Short | Long            | Description                                                            |
+| ----- | --------------- | ---------------------------------------------------------------------- |
+| `-o`  | `--output`      | Where to place generated sourcemap (defaults to the current directory) |
+| `-w`  | `--watch`       | Whether to regenerate sourcemap every time files change                |
+| `-n`  | `--non-scripts` | Whether non-script files should be included                            |
+
+## Stop
+
+Stop Argon session by address, ID or all running sessions. This command is useful when [run_async](../customization.mdx#global-configuration) setting is enabled. If left empty, the last session will be stopped.
+
+```bash
+argon stop [session] --options
+```
+
+Arguments:
+
+- **session** - name of the session to stop _(optional)_
+
+Options:
+
+| Short | Long     | Description                                  |
+| ----- | -------- | -------------------------------------------- |
+| `-H`  | `--host` | Find the session to stop with this host name |
+| `-P`  | `--port` | Find the session to stop with this port      |
+| `-a`  | `--all`  | Whether to stop all running session          |
+| `-l`  | `--list` | List all running session in a nice table     |
+
+## Studio
+
+Launch a new instance of Roblox Studio or open place file directly from the command line.
+
+```bash
+argon studio [path] --options
+```
+
+Arguments:
+
+- **path** - path to the place file to open _(optional)_
+
+Options:
+
+| Short | Long      | Description                                                                                 |
+| ----- | --------- | ------------------------------------------------------------------------------------------- |
+| `-c`  | `--check` | Whether to check if Roblox Studio is already running, if so Roblox Studio won't be launched |
+
+## Debug
+
+Start or stop Roblox playtest with the selected mode.
+
+```bash
+argon debug [mode]
+```
+
+Arguments:
+
+- **mode** - debug mode to use (**Play**, **Run**, **Start**, **Stop**), defaults to **Play**
+
+## Exec
+
+Execute Luau code in Roblox Studio, Requires running [Live Sync](../getting-started/common-usage.mdx#live-sync) session.
+
+```bash
+argon exec [code] [session] --options
+```
+
+Arguments:
+
+- **code** - Luau code to execute, or path to the file with code
+- **session** - name of the session to send code execution request to _(optional)_, defaults to the last session
+
+Options:
+
+| Short | Long           | Description                                                                                 |
+| ----- | -------------- | ------------------------------------------------------------------------------------------- |
+| `-f`  | `--focus`      | Whether to focus Roblox Studio window when executing code                                   |
+| `-s`  | `--standalone` | Whether to run as a separate process - launch Roblox Studio, run code and return the result |
+| `-H`  | `--host`       | Try to find target session by host name                                                     |
+| `-P`  | `--port`       | Try to find target session by port                                                          |
+
+## Update
+
+Forcefully check for updates and update Argon CLI and plugin if available.
+
+```bash
+argon update
+```
+
+## Plugin
+
+Install or uninstall Argon Roblox Studio plugin locally
+
+```bash
+argon plugin [mode] [path]
+```
+
+Arguments:
+
+- **mode** - command mode to use (**install**, **uninstall**)
+- **path** - path where to install or uninstall the plugin _(optional)_
+
+## Config
+
+Edit [Global Configuration](../customization.mdx#global-configuration) directory from the command line or using the default editor.
+
+```bash
+argon config [setting] [value] --options
+```
+
+Arguments:
+
+- **setting** - name of the setting to edit _(optional)_
+- **value** - new value for the setting _(optional)_
+
+Options:
+
+| Short | Long     | Description                                                          |
+| ----- | -------- | -------------------------------------------------------------------- |
+| `-l`  | `--list` | List all available settings and their default values in a nice table |
+
+## Doc
+
+Open Argon's documentation in the browser (homepage of this website).
+
+```bash
+argon doc
+```
+
+## Help
+
+Print help message that shows all available commands and options with their descriptions.
+
+```bash
+argon help
+```

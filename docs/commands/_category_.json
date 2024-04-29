@@ -1,0 +1,9 @@
+{
+  "label": "Commands",
+  "position": 4,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn about the commands that Argon CLI and VS Code extension offers"
+  }
+}
