@@ -4,3 +4,113 @@ title: VS Code
 ---
 
 Learn about Argon Visual Studio Code extension commands!
+
+## Serve
+
+Start [Live Sync](../getting-started/common-usage.mdx#live-sync) session of the selected project.
+
+Arguments:
+
+- **project** - project to serve
+
+Options:
+
+| Name               | Description                                                         |
+| ------------------ | ------------------------------------------------------------------- |
+| Generate sourcemap | Whether to generate [Sourcemap](#sourcemap) every time files change |
+| Use roblox-ts      | Whether to serve using [roblox-ts](https://roblox-ts.com/)          |
+| Customize address  | Enter a custom Live Sync server host name or port or both           |
+
+## Build
+
+[Build](../getting-started/common-usage.mdx#project-building) place or model project into Roblox binary or XML format.
+
+Arguments:
+
+- **project** - project to build
+- **output** - name of the built binary or XML file (defaults to the project name)
+
+Options:
+
+| Name               | Description                                                                         |
+| ------------------ | ----------------------------------------------------------------------------------- |
+| Watch for changes  | Whether to rebuild project every time files change                                  |
+| Generate sourcemap | Whether to generate [Sourcemap](#sourcemap) every time files change                 |
+| Build plugin       | Whether to put built project into Roblox Studio plugins folder (ignores **output**) |
+| Use XML format     | Whether to build in XML format (.rbxlx or .rbxmx)                                   |
+| Use roblox-ts      | Whether to build using [roblox-ts](https://roblox-ts.com/)                          |
+
+## Sourcemap
+
+Generate JSON sourcemap of the project. Very useful when using [Luau LSP](https://github.com/JohnnyMorganz/luau-lsp).
+
+Arguments:
+
+- **project** - project to generate sourcemap of
+- **output** - name of the output file (`sourcemap` is recommended)
+
+Options:
+
+| Name                | Description                                                  |
+| ------------------- | ------------------------------------------------------------ |
+| Watch for changes   | Whether to regenerate sourcemap every time files change      |
+| Include non-scripts | Whether non-script files should be included in the sourcemap |
+
+## Init
+
+Initialize a new Argon project, read more on the [Creating a New Project](../getting-started/new-project.mdx) page.
+
+Arguments:
+
+- **project** - project name to use (`default` is recommended)
+- **template** - project [Template](../getting-started/new-project.mdx#project-templates) to use
+
+Options:
+
+| Name          | Description                                                                                                    |
+| ------------- | -------------------------------------------------------------------------------------------------------------- |
+| Include docs  | Include documentation files: README, LICENSE and CHANGELOG _(if present in the template)_                      |
+| Configure Git | Initialize a new Git repository in the project folder                                                          |
+| Setup Wally   | Add [Wally](https://wally.run/) manifest to use various packages in the project _(if present in the template)_ |
+| Use roblox-ts | Initialize [roblox-ts](https://roblox-ts.com/) project to use TypeScript language                              |
+
+## Stop
+
+If there are any running Argon sessions, stop selected one or all of them.
+
+## Debug
+
+Start or stop Roblox playtest with the selected mode.
+
+Available modes:
+
+- `Play` - Play the game as a player
+- `Run` - Run the game server only
+- `Start` - Start game server ane players
+- `Stop` - Stop any playtest mode
+
+## Exec
+
+Execute Luau code in Roblox Studio, Requires running [Live Sync](../getting-started/common-usage.mdx#live-sync) session.
+
+## Studio
+
+Launch a new instance of Roblox Studio or open place file directly from the command line.
+
+## Plugin
+
+Install or uninstall Argon Roblox Studio plugin locally
+
+## Settings
+
+Open Argon only settings in the Visual Studio Code user or workspace settings.
+
+## Help
+
+Open Argon's documentation in the browser (homepage of this website).
+
+## Quick Info!
+
+:::info
+Argon will remember your last selected options and use them by default next time.
+:::

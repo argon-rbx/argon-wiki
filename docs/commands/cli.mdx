@@ -21,7 +21,7 @@ Options:
 
 | Short | Long         | Description                                                                                                                                                                                                                                                       |
 | ----- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-T`  | `--template` | Choose the template to use for the project _(default: `place`)_                                                                                                                                                                                                   |
+| `-T`  | `--template` | Choose the [Template](../getting-started/new-project.mdx#project-templates) to use for the project _(default: `place`)_                                                                                                                                           |
 | `-l`  | `--license`  | License to include in the project, set using [SPDX identifier](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository#searching-github-by-license-type) _(requires `--docs`)_ |
 | `-g`  | `--git`      | Initialize a new Git repository in the project folder                                                                                                                                                                                                             |
 | `-w`  | `--wally`    | Add [Wally](https://wally.run/) manifest to use various packages in the project _(if present in the template)_                                                                                                                                                    |
@@ -47,8 +47,8 @@ Options:
 | ----- | ------------- | ------------------------------------------------------------------- |
 | `-H`  | `--host`      | Live sync server host name                                          |
 | `-P`  | `--port`      | Live sync server port                                               |
-| `-s`  | `--sourcemap` | Whether to generate [sourcemap](#sourcemap) every time files change |
-| `-t`  | `--ts`        | Whether to run using [roblox-ts](https://roblox-ts.com/)            |
+| `-s`  | `--sourcemap` | Whether to generate [Sourcemap](#sourcemap) every time files change |
+| `-t`  | `--ts`        | Whether to serve using [roblox-ts](https://roblox-ts.com/)          |
 
 ## Build
 
@@ -69,7 +69,7 @@ Options:
 | ----- | ------------- | ----------------------------------------------------------------------------------- |
 | `-o`  | `--output`    | Where to place built project (defaults to the current directory)                    |
 | `-w`  | `--watch`     | Whether to rebuild project every time files change                                  |
-| `-s`  | `--sourcemap` | Whether to generate [sourcemap](#sourcemap) every time files change                 |
+| `-s`  | `--sourcemap` | Whether to generate [Sourcemap](#sourcemap) every time files change                 |
 | `-p`  | `--plugin`    | Whether to put built project into Roblox Studio plugins folder (ignores `--output`) |
 | `-x`  | `--xml`       | Whether to build in XML format (.rbxlx or .rbxmx)                                   |
 | `-t`  | `--ts`        | Whether to build using [roblox-ts](https://roblox-ts.com/)                          |
@@ -223,3 +223,9 @@ Print help message that shows all available commands and options with their desc
 ```bash
 argon help
 ```
+
+## Quick Tip!
+
+:::tip
+Almost all command options can be saved in the [Global Configuration](../customization.mdx#global-configuration) file to use them by default next time.
+:::
