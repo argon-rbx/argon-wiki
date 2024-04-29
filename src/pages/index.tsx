@@ -3,6 +3,8 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import { useColorMode } from "@docusaurus/theme-common";
 import BrowserOnly from "@docusaurus/BrowserOnly";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import { useState } from "react";
 import Layout from "@theme/Layout";
 import Heading from "@theme/Heading";
 import ReactPlayer from "react-player";
@@ -24,8 +26,15 @@ function Header() {
       <BrowserOnly>
         {() => {
           const { width } = useWindowDimensions();
+          const [loaded, setLoaded] = useState(false);
 
           let player: ReactPlayer;
+
+          function onReady() {
+            setTimeout(() => {
+              setLoaded(true);
+            }, 420);
+          }
 
           function onProgress(state: OnProgressProps) {
             if (state.playedSeconds >= 73) {
@@ -44,7 +53,17 @@ function Header() {
                 loop={true}
                 width={Math.max(width, 700)}
                 height={Math.max(width, 700)}
+                onReady={onReady}
                 onProgress={onProgress}
+              />
+
+              <img
+                className={styles.player}
+                src={useBaseUrl("img/background.jpg")}
+                style={{
+                  display: loaded ? "none" : "block",
+                  width: "100%",
+                }}
               />
 
               <div
