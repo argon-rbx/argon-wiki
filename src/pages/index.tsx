@@ -30,15 +30,11 @@ function Header() {
 
           let player: ReactPlayer;
 
-          function onReady() {
-            setTimeout(() => {
-              setLoaded(true);
-            }, 420);
-          }
-
           function onProgress(state: OnProgressProps) {
             if (state.playedSeconds >= 73) {
               player.seekTo(0);
+            } else if (!loaded && state.playedSeconds > 0) {
+              setLoaded(true);
             }
           }
 
@@ -51,18 +47,15 @@ function Header() {
                 playing={true}
                 muted={true}
                 loop={true}
-                width={Math.max(width, 700)}
-                height={Math.max(width, 700)}
-                onReady={onReady}
+                width={Math.max(width, 600)}
+                height={Math.max(width, 600)}
                 onProgress={onProgress}
               />
 
-              <img
-                className={styles.player}
-                src={useBaseUrl("img/background.jpg")}
+              <div
+                className={styles.fakePlayer}
                 style={{
                   display: loaded ? "none" : "block",
-                  width: "100%",
                 }}
               />
 

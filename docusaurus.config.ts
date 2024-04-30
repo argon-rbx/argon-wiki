@@ -82,7 +82,7 @@ const config: Config = {
         {
           label: "API",
           position: "left",
-          to: "/api/project-format",
+          to: "/api/project",
           activeBaseRegex: `/api/`,
         },
         {
@@ -95,6 +95,7 @@ const config: Config = {
           href: "https://github.com/argon-rbx",
           position: "right",
           className: "github-link",
+          "aria-label": "GitHub repository",
         },
       ],
     },
@@ -118,8 +119,8 @@ const config: Config = {
           title: "API",
           items: [
             {
-              label: "Project Format",
-              to: "/api/project-format",
+              label: "Project",
+              to: "/api/project",
             },
             {
               label: "File Types",
