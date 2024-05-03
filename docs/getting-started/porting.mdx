@@ -19,3 +19,21 @@ Learn how to port your existing Roblox game to Argon!
 ## Porting .rbxl or .rbxlx Files
 
 Not implemented yet.
+
+## Instance Filtering
+
+You can tell Argon to ignore certain instances by their **name**, **class** or **path**. Additionally you can specify **properties** that should be ignored. All of this can be done by specifying [Syncback Settings](/api/project#syncback-settings) in the `*.project.json` file. Here is an example:
+
+```json
+{
+  "name": "Project",
+  "tree": {
+    "$path": "src"
+  },
+  "syncback": {
+    "ignoreNames": ["Map", "Models"],
+    "ignoreClasses": ["Part", "Camera"],
+    "ignoreProperties": ["Size", "Position"]
+  }
+}
+```

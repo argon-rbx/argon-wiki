@@ -220,7 +220,7 @@ graph TD;
 
 ## JSON Module
 
-Any file with the `json` extension that is not a [JSON Model](#json-model), [Project File](#project), or a [Data File](#data-file) will be turned into a `ModuleScript` that returns a table representing the same structure as the JSON file. Example JSON file:
+Any file with the `json` extension that is not a [JSON Model](#json-model), [Project File](#project), or a [Data File](#data-file) will be turned into a `ModuleScript` that returns a table representing the same structure as the [JSON](https://www.json.org/json-en.html) file. Example JSON file:
 
 ```json
 {
@@ -252,7 +252,7 @@ JSON files are a great way to store bulk data (e.g. asset IDs) in a human-readab
 
 ## TOML Module
 
-Any file with the `toml` extension will be turned into a `ModuleScript` that returns a table representing the same structure as the TOML file. Example TOML file:
+Any file with the `toml` extension will be turned into a `ModuleScript` that returns a table representing the same structure as the [TOML](https://toml.io/en/) file. Example TOML file:
 
 ```toml
 string = "abc"
@@ -283,6 +283,10 @@ Due to the easy to read and edit format of TOML, it can be convenient to use the
 :::warning
 There is a single limitation for TOML files: `DateTime` values are converted into `string` ones because Luau does not have a good representation of this data type.
 :::
+
+## MessagePack Module
+
+Any file with the `msgpack` extension will be turned into a `ModuleScript` that returns a table representing the same structure as the original file. [MessagePack](https://msgpack.org/index.html) is a binary format so it's fast and small but it's not human-readable. It is great for storing large amounts of data that don't need to be edited by hand.
 
 ## Plain Text
 
