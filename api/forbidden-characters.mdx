@@ -1,0 +1,47 @@
+---
+title: Forbidden Characters
+sidebar_position: 4
+---
+
+Due to operating system limitations, the use of certain characters and filenames as instance names is forbidden!
+
+## Windows
+
+This is the most restrictive operating system in terms of file naming.
+
+Your instance name cannot:
+
+- Be an empty string
+- Be longer than 255 characters
+- End with a period (`.`)
+- End with a space (` `)
+- Contain whitespace characters
+- Contain any ASCII [control characters](https://en.wikipedia.org/wiki/Control_character)
+- Contain any of the following characters:
+  - `<` (less than)
+  - `>` (greater than)
+  - `:` (colon)
+  - `"` (double quote)
+  - `/` (forward slash)
+  - `\` (backslash)
+  - `|` (pipe)
+  - `?` (question mark)
+  - `*` (asterisk)
+
+Additionally, you cannot use any of the following reserved names:
+
+- `CON`, `PRN`, `AUX`, `NUL`
+- `COM1`, `COM2`, `COM3`, `COM4`, `COM5`, `COM6`, `COM7`, `COM8`, `COM9`
+- `LPT1`, `LPT2`, `LPT3`, `LPT4`, `LPT5`, `LPT6`, `LPT7`, `LPT8`, `LPT9`
+
+## macOS & Linux
+
+These operating systems are more lenient in terms of file naming.
+
+Your instance name cannot:
+
+- Be an empty string
+- Be longer than 255 characters
+- Contain whitespace characters
+- Contain forward slashes (`/`)
+- Contain [null characters](https://en.wikipedia.org/wiki/Null_character)
