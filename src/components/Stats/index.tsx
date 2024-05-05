@@ -66,9 +66,7 @@ export default function Stats(): JSX.Element {
   );
 
   useEffect(() => {
-    fetch(`https://api.argon.wiki/pull`, {
-      cache: "force-cache",
-    })
+    fetch(`https://api.argon.wiki/pull`)
       .then((response) => {
         response
           .json()

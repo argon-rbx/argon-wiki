@@ -1,0 +1,43 @@
+name: Deploy and Crawl
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  CRAWLER_USER_ID: ${{ secrets.CRAWLER_USER_ID }}
+  CRAWLER_API_KEY: ${{ secrets.CRAWLER_API_KEY }}
+  CRAWLER_ID: ${{ secrets.CRAWLER_ID }}
+
+jobs:
+  deploy:
+    name: Deploy to Vercel
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Vercel
+        run: npm install --global vercel@latest
+
+      - name: Pull Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Project Artifacts
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+  crawl:
+    name: Run Algolia Crawler
+    runs-on: ubuntu-latest
+    needs: deploy
+
+    steps:
+      - name: Reindex
+        run: |
+          curl -H "Content-Type: application/json" -X POST --user ${CRAWLER_USER_ID}:${CRAWLER_API_KEY} "https://crawler.algolia.com/api/1/crawlers/${CRAWLER_ID}/reindex"

@@ -158,9 +158,9 @@ Any directory on the filesystem will turn into a `Folder` instance with the same
 
 Files with `lua` or `luau` extensions are transformed into the corresponding Roblox script instances:
 
-- Any file ending in `.server.lua(a)` will turn into a `Script` instance
-- Any file ending in `.client.lua(a)` will turn into a `LocalScript` instance
-- Any other `.lua(a)` file will turn into a `ModuleScript` instance
+- Any file ending in `.server.lua(u)` will turn into a `Script` instance
+- Any file ending in `.client.lua(u)` will turn into a `LocalScript` instance
+- Any other `.lua(u)` file will turn into a `ModuleScript` instance
 
 :::tip
 You can disable scripts by adding `--disable` comment at the very beginning of the script source without needing to create special [Data File](#data-file) only for this property!
