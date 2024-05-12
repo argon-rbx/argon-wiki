@@ -57,19 +57,21 @@ Argon Roblox Studio plugin is customizable through the settings menu that can be
 
 Here are the settings you can change:
 
-| Setting               | Default     | Description                                                                                                                 |
-| --------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Server Host           | `localhost` | The host name of the server that plugin should connect to in order to start live syncing                                    |
-| Server Port           | `8000`      | The port of the server that plugin should connect to in order to start live syncing                                         |
-| Initial Sync Priority | `Server`    | Which side should be considered as up to date when initially connecting (**Server**, **Client**)                            |
-| Auto Connect          | `true`      | Automatically attempt to connect to the server when you opening a new place                                                 |
-| Auto Reconnect        | `false`     | If the connection is lost, automatically reconnect to the server after 5 second delay                                       |
-| Display Prompts       | `Always`    | When to show prompts for actions that require confirmation (**Always**, **Initial**, **Never**)                             |
-| Keep Unknowns         | `false`     | By default keep instances that are not present in the file system instead of destroying them                                |
-| Open In Editor        | `false`     | Open scripts in your OS default editor instead of the Roblox Studio one                                                     |
-| Log Level             | `Warn`      | The level of logging you want to see in the output (**Off**, **Error**, **Warn**, **Info**, **Debug**, **Trace**)           |
-| Two-Way Sync          | `false`     | Sync changes made in Roblox Studio back to the server (local file system)                                                   |
-| Sync Properties       | `false`     | Whether all properties should be synced back to the server **(does not affect scripts)**, requires **Two-Way Sync** setting |
+| Setting               | Default     | Description                                                                                                                                           |
+| --------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Server Host           | `localhost` | The host name of the server that plugin should connect to in order to start live syncing                                                              |
+| Server Port           | `8000`      | The port of the server that plugin should connect to in order to start live syncing                                                                   |
+| Initial Sync Priority | `Server`    | Which side should be considered as up to date when initially connecting (**Server**, **Client**)                                                      |
+| Only Code Mode        | `true`      | Whether to initially only sync scripts and instances that have descendant scripts, requires **Initial Sync Priority** setting to be set to **Client** |
+| Auto Connect          | `true`      | Automatically attempt to connect to the server when you opening a new place                                                                           |
+| Auto Reconnect        | `false`     | If the connection is lost, automatically reconnect to the server after 5 second delay                                                                 |
+| Display Prompts       | `Always`    | When to show prompts for actions that require confirmation (**Always**, **Initial**, **Never**)                                                       |
+| Two-Way Sync          | `true`      | Sync changes made in Roblox Studio back to the server (local file system)                                                                             |
+| Sync Properties       | `false`     | Whether all properties should be synced back to the server **(does not affect scripts)**, requires **Two-Way Sync** setting                           |
+| Open In Editor        | `false`     | Open scripts in your OS default editor instead of the Roblox Studio one                                                                               |
+| Log Level             | `Warn`      | The level of logging you want to see in the output (**Off**, **Error**, **Warn**, **Info**, **Debug**, **Trace**)                                     |
+| Keep Unknowns         | `false`     | By default keep instances that are not present in the file system instead of destroying them                                                          |
+| Skip Initial Sync     | `false`     | Whether to skip the initial sync when connecting to the server **(only recommended for large places)**                                                |
 
 ## Argon Extension
 
