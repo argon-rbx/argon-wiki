@@ -1,15 +1,15 @@
-import clsx from "clsx";
-import Heading from "@theme/Heading";
-import styles from "./styles.module.css";
-import SlotCounter from "react-slot-counter";
-import { useState, useEffect } from "react";
-import formatNumber from "@site/src/util/formatNumber";
+import clsx from "clsx"
+import Heading from "@theme/Heading"
+import styles from "./styles.module.css"
+import SlotCounter from "react-slot-counter"
+import { useState, useEffect } from "react"
+import formatNumber from "@site/src/util/formatNumber"
 
 type StatItem = {
-  id: string;
-  title: string;
-  value: number;
-};
+  id: string
+  title: string
+  value: number
+}
 
 const StatList: StatItem[] = [
   {
@@ -42,7 +42,7 @@ const StatList: StatItem[] = [
     title: "Sessions Started",
     value: 26366,
   },
-];
+]
 
 function Stat({ title, value }: { title: string; value: any }) {
   return (
@@ -57,13 +57,13 @@ function Stat({ title, value }: { title: string; value: any }) {
         <Heading as="h2">{title}</Heading>
       </div>
     </div>
-  );
+  )
 }
 
 export default function Stats(): JSX.Element {
   let [stats, setStats] = useState(
-    Object.fromEntries(StatList.map((item) => [item.id, item.value]))
-  );
+    Object.fromEntries(StatList.map((item) => [item.id, item.value])),
+  )
 
   useEffect(() => {
     fetch(`https://api.argon.wiki/pull`)
@@ -71,18 +71,18 @@ export default function Stats(): JSX.Element {
         response
           .json()
           .then((data) => {
-            setStats(data);
+            setStats(data)
           })
           .catch(() => {
-            console.warn("Failed to parse stats");
-          });
+            console.warn("Failed to parse stats")
+          })
       })
       .catch(() => {
-        console.warn("Failed to fetch stats - running in development mode");
-      });
+        console.warn("Failed to fetch stats - running in development mode")
+      })
 
-    return () => {};
-  }, []);
+    return () => {}
+  }, [])
 
   return (
     <section className={styles.stats}>
@@ -94,5 +94,5 @@ export default function Stats(): JSX.Element {
         </div>
       </div>
     </section>
-  );
+  )
 }

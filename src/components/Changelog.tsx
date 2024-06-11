@@ -1,5 +1,5 @@
-import { useState } from "react";
-import Markdown from "react-markdown";
+import { useState } from "react"
+import Markdown from "react-markdown"
 
 const DUMMY_CHANGELOG = `# Changelog
 
@@ -39,14 +39,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - \`plugin\` command now creates directory if the provided one does not exist
 - Argon plugin gets installed automatically at the first Argon launch
-- Config is now only read once`;
+- Config is now only read once`
 
 export default function Changelog({ link }: { link: string }) {
-  const [state, setState] = useState(DUMMY_CHANGELOG);
+  const [state, setState] = useState(DUMMY_CHANGELOG)
 
   fetch(link)
     .then((response) => response.text())
-    .then((text) => setState(text));
+    .then((text) => setState(text))
 
-  return <Markdown>{state}</Markdown>;
+  return <Markdown>{state}</Markdown>
 }

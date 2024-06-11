@@ -1,40 +1,40 @@
-import clsx from "clsx";
-import Link from "@docusaurus/Link";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { useColorMode } from "@docusaurus/theme-common";
-import BrowserOnly from "@docusaurus/BrowserOnly";
-import useBaseUrl from "@docusaurus/useBaseUrl";
-import { useState } from "react";
-import Layout from "@theme/Layout";
-import Heading from "@theme/Heading";
-import ReactPlayer from "react-player";
-import { OnProgressProps } from "react-player/base";
-import useWindowDimensions from "../util/windowDimensions";
+import clsx from "clsx"
+import Link from "@docusaurus/Link"
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
+import { useColorMode } from "@docusaurus/theme-common"
+import BrowserOnly from "@docusaurus/BrowserOnly"
+import useBaseUrl from "@docusaurus/useBaseUrl"
+import { useState } from "react"
+import Layout from "@theme/Layout"
+import Heading from "@theme/Heading"
+import ReactPlayer from "react-player"
+import { OnProgressProps } from "react-player/base"
+import useWindowDimensions from "../util/windowDimensions"
 
-import Features from "../components/Features";
-import Stats from "../components/Stats";
+import Features from "../components/Features"
+import Stats from "../components/Stats"
 
-import Banner from "@site/static/img/banner.svg";
-import styles from "./index.module.css";
+import Banner from "@site/static/img/banner.svg"
+import styles from "./index.module.css"
 
 function Header() {
-  const { siteConfig } = useDocusaurusContext();
-  const { colorMode } = useColorMode();
+  const { siteConfig } = useDocusaurusContext()
+  const { colorMode } = useColorMode()
 
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <BrowserOnly>
         {() => {
-          const { width } = useWindowDimensions();
-          const [loaded, setLoaded] = useState(false);
+          const { width } = useWindowDimensions()
+          const [loaded, setLoaded] = useState(false)
 
-          let player: ReactPlayer;
+          let player: ReactPlayer
 
           function onProgress(state: OnProgressProps) {
             if (state.playedSeconds >= 73) {
-              player.seekTo(0);
+              player.seekTo(0)
             } else if (!loaded && state.playedSeconds > 0) {
-              setLoaded(true);
+              setLoaded(true)
             }
           }
 
@@ -66,7 +66,7 @@ function Header() {
                 }}
               />
             </>
-          );
+          )
         }}
       </BrowserOnly>
 
@@ -99,7 +99,7 @@ function Header() {
           <Link
             className={clsx(
               "button button--primary button--lg",
-              styles.download
+              styles.download,
             )}
             to="https://github.com/argon-rbx/argon/releases/latest"
           >
@@ -108,7 +108,7 @@ function Header() {
         </div>
       </div>
     </header>
-  );
+  )
 }
 
 export default function Home(): JSX.Element {
@@ -124,5 +124,5 @@ export default function Home(): JSX.Element {
         <Stats />
       </main>
     </Layout>
-  );
+  )
 }
