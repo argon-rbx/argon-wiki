@@ -49,6 +49,7 @@ Options:
 | `-P`  | `--port`      | Live sync server port                                               |
 | `-s`  | `--sourcemap` | Whether to generate [Sourcemap](#sourcemap) every time files change |
 | `-t`  | `--ts`        | Whether to serve using [roblox-ts](https://roblox-ts.com/)          |
+| `-a`  | `--async`     | Run Argon asynchronously, freeing up the terminal                   |
 
 ## Build
 
@@ -73,6 +74,7 @@ Options:
 | `-p`  | `--plugin`    | Whether to put built project into Roblox Studio plugins folder (ignores `--output`) |
 | `-x`  | `--xml`       | Whether to build in XML format (.rbxlx or .rbxmx)                                   |
 | `-t`  | `--ts`        | Whether to build using [roblox-ts](https://roblox-ts.com/)                          |
+| `-a`  | `--async`     | Run Argon asynchronously, freeing up the terminal (requires `--watch`)              |
 
 ## Sourcemap
 
@@ -94,6 +96,7 @@ Options:
 | `-o`  | `--output`      | Where to place generated sourcemap (defaults to the current directory) |
 | `-w`  | `--watch`       | Whether to regenerate sourcemap every time files change                |
 | `-n`  | `--non-scripts` | Whether non-script files should be included                            |
+| `-a`  | `--async`       | Run Argon asynchronously, freeing up the terminal (requires `--watch`) |
 
 ## Stop
 
@@ -211,9 +214,10 @@ Arguments:
 
 Options:
 
-| Short | Long     | Description                                                          |
-| ----- | -------- | -------------------------------------------------------------------- |
-| `-l`  | `--list` | List all available settings and their default values in a nice table |
+| Short | Long        | Description                                                          |
+| ----- | ----------- | -------------------------------------------------------------------- |
+| `-l`  | `--list`    | List all available settings and their default values in a nice table |
+| `-d`  | `--default` | Restore all settings to their default values                         |
 
 ## Doc
 
