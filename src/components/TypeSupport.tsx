@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm"
 export default function Changelog() {
   const [state, setState] = useState("Type support chart loading...")
 
-  fetch("https://raw.githubusercontent.com/rojo-rbx/rbx-dom/master/README.md")
+  fetch("https://raw.githubusercontent.com/argon-rbx/rbx-dom/master/README.md")
     .then((response) => response.text())
     .then((text) => {
       text = text.substring(text.indexOf("Coverage") + 10)

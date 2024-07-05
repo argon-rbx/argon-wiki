@@ -11,6 +11,12 @@
   color: #8278e6;
 }
 
+.note {
+  width: 100%;
+  padding-top: 1rem;
+  text-align: center;
+}
+
 @media screen and (max-width: 512px) {
   .number {
     font-size: 48px;

@@ -80,7 +80,7 @@ function Header() {
             <p
               className="hero__subtitle"
               style={{
-                color: colorMode == "dark" ? "white" : "black",
+                color: colorMode === "dark" ? "white" : "black",
               }}
             >
               {siteConfig.tagline}

@@ -47,13 +47,13 @@ const StatList: StatItem[] = [
 function Stat({ title, value }: { title: string; value: any }) {
   return (
     <div className={clsx("col col--4")}>
-      <div>
+      <div className="text--center">
         <SlotCounter
           containerClassName={styles.number}
           value={formatNumber(value)}
         />
       </div>
-      <div className="padding-horiz--md padding-bottom--md">
+      <div className="text--center padding-horiz--md padding-bottom--md">
         <Heading as="h2">{title}</Heading>
       </div>
     </div>
@@ -66,7 +66,7 @@ export default function Stats(): JSX.Element {
   )
 
   useEffect(() => {
-    fetch(`https://api.argon.wiki/pull`)
+    fetch("https://api.argon.wiki/pull")
       .then((response) => {
         response
           .json()
@@ -91,6 +91,14 @@ export default function Stats(): JSX.Element {
           {StatList.map((props, idx) => (
             <Stat key={idx} title={props.title} value={stats[props.id]} />
           ))}
+
+          <i className={styles.note}>
+            These stats are collected 100% anonymously. You can opt out
+            completely by disabling{" "}
+            <a href="/docs/configuration#global-config">share_stats</a> setting.
+            The server backend is open source and can be seen{" "}
+            <a href="https://github.com/argon-rbx/stats-backend">here</a>.
+          </i>
         </div>
       </div>
     </section>

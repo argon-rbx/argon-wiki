@@ -1,52 +1,79 @@
 import { useState } from "react"
+import ContentLoader from "react-content-loader"
 import Markdown from "react-markdown"
 
-const DUMMY_CHANGELOG = `# Changelog
+function Placeholder() {
+  let globalY = 4
 
-Changelog is loading... This is a placeholder!
+  function Rect(props: { w?: number; h?: number; o?: number }) {
+    let w = props.w || 300
+    const h = props.h || 6
+    const o = props.o || 0
+    const y = globalY + o
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), that adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+    globalY = y + h + 12
 
-## [Unreleased](https://github.com/argon-rbx/argon/compare/2.0.0-pre5...HEAD)
+    if (w === 300) {
+      w += Math.floor((Math.random() - 0.5) * 100)
+    }
 
-### Added
+    return <rect y={y} width={w} height={h} rx={h === 6 ? 2 : 3} />
+  }
 
-- Full two-way sync
-- Support for \`legacy_scripts\` and \`keep_unknowns\` fields
-- Ability to re-release the same version when needed
-- Virtual file system for testing
-- \`plugin\` command now fallbacks to bundled binary if user has no internet connection
-- \`update\` command that updates both CLI and plugin regardless of global configuration
-- Community stats tracking
-- Helper scripts
-
-### Improved
-
-- Instance source tracking and meta management
-- Standard file system with additional methods
-- Argon network protocol now uses MessagePack instead of JSON
-- Sessions that crashed now get removed from \`sessions.toml\` file
-
-### Fixed
-
-- \`.src\` and \`init\` files in sourcemap generation
-- \`Open In Editor\` now opens folders only if instance has no other sources
-- Plugin now installs and updates correctly on Windows
-
-## [2.0.0-pre5](https://github.com/argon-rbx/argon/compare/2.0.0-pre4...2.0.0-pre5) - 2024-03-22
-
-### Improved
-
-- \`plugin\` command now creates directory if the provided one does not exist
-- Argon plugin gets installed automatically at the first Argon launch
-- Config is now only read once`
+  return (
+    <ContentLoader
+      speed={2}
+      viewBox="0 0 420 690"
+      backgroundColor="#2e2c30"
+      foregroundColor="#67676f"
+    >
+      {/* Intro */}
+      <Rect h={12} w={75} />
+      <Rect w={200} />
+      <Rect w={250} />
+      {/* Unreleased */}
+      <Rect h={12} w={80} o={12} />
+      <Rect h={10} w={30} o={6} />
+      <Rect />
+      <Rect o={-4} />
+      <Rect o={-4} />
+      <Rect h={10} w={40} o={6} />
+      <Rect />
+      <Rect o={-4} />
+      {/* V3 */}
+      <Rect h={12} w={130} o={12} />
+      <Rect h={10} w={50} o={6} />
+      <Rect />
+      <Rect h={10} w={30} o={6} />
+      <Rect />
+      <Rect o={-4} />
+      <Rect h={10} w={40} o={6} />
+      <Rect />
+      {/* V2 */}
+      <Rect h={12} w={130} o={12} />
+      <Rect h={10} w={40} o={6} />
+      <Rect />
+      <Rect o={-4} />
+      <Rect o={-4} />
+      <Rect o={-4} />
+      <Rect h={10} w={50} o={6} />
+      <Rect />
+      <Rect o={-4} />
+      {/* V1 */}
+      <Rect h={12} w={130} o={12} />
+      <Rect h={10} w={30} o={6} />
+      <Rect />
+      <Rect o={-4} />
+    </ContentLoader>
+  )
+}
 
 export default function Changelog({ link }: { link: string }) {
-  const [state, setState] = useState(DUMMY_CHANGELOG)
+  const [changelog, setChangelog] = useState(<Placeholder />)
 
   fetch(link)
     .then((response) => response.text())
-    .then((text) => setState(text))
+    .then((text) => setChangelog(<Markdown>{text}</Markdown>))
 
-  return <Markdown>{state}</Markdown>
+  return changelog
 }

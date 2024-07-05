@@ -88,13 +88,13 @@ const config: Config = {
           label: "API",
           position: "left",
           to: "/api/project",
-          activeBaseRegex: `/api/`,
+          activeBaseRegex: "/api/",
         },
         {
           label: "Changelog",
           position: "left",
           to: "/changelog/argon",
-          activeBaseRegex: `/changelog/`,
+          activeBaseRegex: "/changelog/",
         },
         {
           href: "https://github.com/argon-rbx",
