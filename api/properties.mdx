@@ -52,6 +52,13 @@ Argon supports most Roblox properties, here you can learn their syntax when writ
 
 Many property types have an **implicit** and **explicit** format. While most of the time it's easier to specify properties implicitly, explicit values are useful when you need to specify a property type that can't be represented in a simple way such as [ColorSequence](#colorsequence) or [NumberSequence](#numbersequence). It also helps with specifying instance [Attributes](#attributes).
 
+## Limitations
+
+Not all properties can be applied by Argon when live-syncing due to the limitations of the Roblox Studio plugin API. Some common cases when you might face this problem are:
+
+- Binary data (Terrain, CSG parts)
+- `Lighting.Technology`
+
 ## Attributes
 
 Argon defines the "Attributes" property on any instance to have the Attributes type, allowing it to be specified implicitly.

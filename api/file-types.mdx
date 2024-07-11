@@ -324,19 +324,4 @@ File ending with `.data.json` is considered data file which can specify:
 - `properties`: A map of properties to apply on the instance
 - `keepUnknowns`: Whether children that Argon doesn't know about should be deleted
 
-## Limitations
-
-Not all property types can be applied by Argon both when live-syncing and when building place files. Some common cases when you might face this problem are:
-
-- Binary data (Terrain, CSG parts)
-- `MeshPart.MeshId`
-- `HttpService.HttpEnabled`
-
-This is due to the limitations of the Roblox Studio plugin API and libraries used by Argon. You can learn more on the [Properties](./properties.mdx) page.
-
-<details>
-  <summary>Property type support chart</summary>
-  <TypeSupport />
-</details>
-
 > This page is based on Rojo's [Sync Details](https://rojo.space/docs/v7/sync-details/) as Argon processes files in a very similar way.
