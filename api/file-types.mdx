@@ -281,8 +281,46 @@ return {
 
 Due to the easy to read and edit format of TOML, it can be convenient to use them as configuration files.
 
+:::info
+`DateTime` values are converted into strings because Luau does not have a good representation of this data type.
+:::
+
+## YAML Module
+
+Any file with the `yaml` or `yml` extension will be turned into a `ModuleScript` that returns a table representing the same structure as the [YAML](https://yaml.org/) file. Example YAML file:
+
+```yaml
+string: abc
+bool: true
+
+array:
+  - 1
+  - 2
+  - 3
+
+object:
+  int: 1337
+  float: 4.2
+```
+
+Would become a `ModuleScript` with the following `Source`:
+
+```lua
+return {
+	["string"] = "abc",
+	["bool"] = true,
+	["array"] = {1, 2, 3},
+	["object"] = {
+		["int"] = 1337,
+		["float"] = 4.2,
+	}
+}
+```
+
+Thanks to its easy syntax, YAML files are great as configuration files as well.
+
 :::warning
-There is a single limitation for TOML files: `DateTime` values are converted into `string` ones because Luau does not have a good representation of this data type.
+`Mappings` only support string, number and bool keys, other ones will be completely skipped!
 :::
 
 ## MessagePack Module
