@@ -96,7 +96,7 @@ The following types are supported for attribute values:
 
 ## Axes
 
-List of strings, each of which may be either `X`, `Y`, or `Z`. Each string sets the corresponding component.
+List of strings, each of which may be either `X`, `Y`, or `Z`. Each **string** sets the corresponding component.
 
 ```json
 {
@@ -109,7 +109,7 @@ List of strings, each of which may be either `X`, `Y`, or `Z`. Each string sets 
 
 ## BinaryString
 
-For both implicit and explicit values, the format is a base64-encoded string.
+For both implicit and explicit values, the format is a **base64-encoded string**.
 
 ```json
 {
@@ -122,7 +122,7 @@ For both implicit and explicit values, the format is a base64-encoded string.
 
 ## Bool
 
-For both implicit and explicit values, the format is a boolean value.
+For both implicit and explicit values, the format is a **boolean** value.
 
 ```json
 {
@@ -135,7 +135,7 @@ For both implicit and explicit values, the format is a boolean value.
 
 ## BrickColor
 
-For both implicit and explicit values, the format is a string respresting the [Name](https://developer.roblox.com/en-us/articles/BrickColor-Codes) or an integer representing the [Number](https://developer.roblox.com/en-us/articles/BrickColor-Codes) of a BrickColor.
+For both implicit and explicit values, the format is a **string** respresting the [Name](https://developer.roblox.com/en-us/articles/BrickColor-Codes) or an **integer** representing the [Number](https://developer.roblox.com/en-us/articles/BrickColor-Codes) of a BrickColor.
 
 ```json
 {
@@ -170,7 +170,7 @@ For implicit values, the format is a flat list of components. For explicit value
 
 ## Color3
 
-For both implicit and explicit values, the format is a list of `R`, `G` and `B` components, respectively. Each component is a float in the range `0` - `1`.
+For both implicit and explicit values, the format is a list of `R`, `G` and `B` components, respectively. Each component is a **float** in the range `0` - `1`.
 
 ```json
 {
@@ -185,7 +185,7 @@ For both implicit and explicit values, the format is a list of `R`, `G` and `B` 
 
 ## Color3uint8
 
-For both implicit and explicit values, the format is a list of `R`, `G` and `B` components, respectively. Each component is an integer in the range `0` - `255`.
+For both implicit and explicit values, the format is a list of `R`, `G` and `B` components, respectively. Each component is an **integer** in the range `0` - `255`.
 
 ```json
 {
@@ -224,7 +224,7 @@ For implicit values, the format is a flat list of ColorSequenceKeypoints. For ex
 
 ## Content
 
-For both implicit and explicit values, the format is a string.
+For both implicit and explicit values, the format is a **string**.
 
 ```json
 {
@@ -237,7 +237,7 @@ For both implicit and explicit values, the format is a string.
 
 ## Enum
 
-For implicit values, the format is a string corresponding to the `name` of the enum item. For explicit values, the format is an integer corresponding to the `value` of the enum item.
+For implicit values, the format is a **string** corresponding to the `name` of the enum item. For explicit values, the format is an **integer** corresponding to the `value` of the enum item.
 
 ```json
 {
@@ -250,7 +250,7 @@ For implicit values, the format is a string corresponding to the `name` of the e
 
 ## Faces
 
-For both implicit and explicit values, the format is a list of strings, each of which may be either `Right`, `Top`, `Back`, `Left`, `Bottom`, or `Front`. Each string sets the corresponding component.
+For both implicit and explicit values, the format is a list of strings, each of which may be either `Right`, `Top`, `Back`, `Left`, `Bottom`, or `Front`. Each **string** sets the corresponding component.
 
 ```json
 {
@@ -263,7 +263,7 @@ For both implicit and explicit values, the format is a list of strings, each of 
 
 ## Float32
 
-For both implicit and explicit values, the format is a number.
+For both implicit and explicit values, the format is a **float**.
 
 ```json
 {
@@ -276,7 +276,7 @@ For both implicit and explicit values, the format is a number.
 
 ## Float64
 
-For both implicit and explicit values, the format is a number.
+For both implicit and explicit values, the format is a **float**.
 
 ```json
 {
@@ -289,7 +289,7 @@ For both implicit and explicit values, the format is a number.
 
 ## Font
 
-For both implicit and explicit values, the format is an object with `family`, `weight`, and `style` fields. Each component is a string.
+For both implicit and explicit values, the format is an object with `family`, `weight`, and `style` fields. Each component is a **string**.
 
 ```json
 {
@@ -312,7 +312,7 @@ For both implicit and explicit values, the format is an object with `family`, `w
 
 ## Int32
 
-For both implicit and explicit values, the format is an integer.
+For both implicit and explicit values, the format is an **integer**.
 
 ```json
 {
@@ -325,7 +325,7 @@ For both implicit and explicit values, the format is an integer.
 
 ## Int64
 
-For both implicit and explicit values, the format is an integer.
+For both implicit and explicit values, the format is an **integer**.
 
 ```json
 {
@@ -338,7 +338,7 @@ For both implicit and explicit values, the format is an integer.
 
 ## NumberRange
 
-For both implicit and explicit values, the format is a list of `Min` and `Max` components, respectively. Each component is a float.
+For both implicit and explicit values, the format is a list of `Min` and `Max` components, respectively. Each component is a **float**.
 
 ```json
 {
@@ -397,7 +397,7 @@ For implicit values, the format is a flat list of components. For explicit value
 
 ## PhysicalProperties
 
-For both implicit and explicit values, there are two formats. The constant string `Default`, which represents the default PhysicalProperties value or an object with fields corresponding to each component.
+For both implicit and explicit values, there are two formats. The constant **string** `Default`, which represents the default PhysicalProperties value or an object with fields corresponding to each component.
 
 ```json
 {
@@ -426,7 +426,7 @@ For both implicit and explicit values, there are two formats. The constant strin
 
 ## ProtectedString
 
-For both implicit and explicit values, the format is a string.
+For both implicit and explicit values, the format is a **string**.
 
 ```json
 {
@@ -485,19 +485,62 @@ Not implemented yet.
 
 ## Region3
 
-TODO
+For both implicit and explicit values, the format is a list of `Min` and `Max` components, respectively. Each component is a [Vector3](#vector3).
+
+```json
+{
+  "$properties": {
+    "Implicit": [
+      [1, 2, 3],
+      [4, 5, 6]
+    ],
+    "Explicit": {
+      "Region3": [
+        [1.0, 2.0, 3.0],
+        [4.0, 5.0, 6.0]
+      ]
+    }
+  }
+}
+```
 
 ## Region3int16
 
-TODO
+For both implicit and explicit values, the format is a list of `Min` and `Max` components, respectively. Each component is a [Vector3int16](#vector3int16).
+
+```json
+{
+  "$properties": {
+    "Implicit": [
+      [100, 200, 300],
+      [400, 500, 600]
+    ],
+    "Explicit": {
+      "Region3int16": [
+        [100, 200, 300],
+        [400, 500, 600]
+      ]
+    }
+  }
+}
+```
 
 ## SharedString
 
-TODO
+For both implicit and explicit values, the format is a **string**.
+
+```json
+{
+  "$properties": {
+    "Implicit": "Argon is cool!",
+    "Explicit": { "SharedString": "Argon is cool!" }
+  }
+}
+```
 
 ## String
 
-For both implicit and explicit values, the format is a string.
+For both implicit and explicit values, the format is a **string**.
 
 ```json
 {
@@ -510,7 +553,7 @@ For both implicit and explicit values, the format is a string.
 
 ## Tags
 
-For both implicit and explicit values, the format is a list of strings, where each string is a tag.
+For both implicit and explicit values, the format is a list of strings, where each **string** is a tag.
 
 ```json
 {
