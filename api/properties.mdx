@@ -3,50 +3,13 @@ title: Properties
 sidebar_position: 3
 ---
 
+import PropertySupport from "@site/src/components/PropertySupport"
+
 Argon supports most Roblox properties, here you can learn their syntax when written in project and data files!
 
 ## Property Type Support Chart
 
-| Property Type                                       | Example Property                | Build | Live Sync | Properties |
-| --------------------------------------------------- | ------------------------------- | ----- | --------- | ---------- |
-| [Attributes](#attributes)                           | `Instance.Attributes`           | ✅    | ✅        | ✅         |
-| [Axes](#axes)                                       | `ArcHandles.Axes`               | ✅    | ✅        | ✅         |
-| [BinaryString](#binarystring)                       | `BinaryStringValue.Value`       | ✅    | ✅        | ✅         |
-| [Bool](#bool)                                       | `Part.Anchored`                 | ✅    | ✅        | ✅         |
-| [BrickColor](#brickcolor)                           | `Part.BrickColor`               | ✅    | ✅        | ✅         |
-| [CFrame](#cframe)                                   | `Part.CFrame`                   | ✅    | ✅        | ✅         |
-| [Color3](#color3)                                   | `Lighting.Ambient`              | ✅    | ✅        | ✅         |
-| [Color3uint8](#color3uint8)                         | `Part.BrickColor`               | ✅    | ✅        | ✅         |
-| [ColorSequence](#colorsequence)                     | `Beam.Color`                    | ✅    | ✅        | ✅         |
-| [Content](#content)                                 | `Decal.Texture`                 | ✅    | ✅        | ✅         |
-| [Enum](#enum)                                       | `Part.Shape`                    | ✅    | ✅        | ✅         |
-| [Faces](#faces)                                     | `Handles.Faces`                 | ✅    | ✅        | ✅         |
-| [Float32](#float32)                                 | `Players.RespawnTime`           | ✅    | ✅        | ✅         |
-| [Float64](#float64)                                 | `Sound.PlaybackLoudness`        | ✅    | ✅        | ✅         |
-| [Font](#font)                                       | `TextLabel.FontFace`            | ✅    | ✅        | ✅         |
-| [Int32](#int32)                                     | `Frame.ZIndex`                  | ✅    | ✅        | ✅         |
-| [Int64](#int64)                                     | `Player.UserId`                 | ✅    | ✅        | ✅         |
-| [NumberRange](#numberrange)                         | `ParticleEmitter.Lifetime`      | ✅    | ✅        | ✅         |
-| [NumberSequence](#numbersequence)                   | `Beam.Transparency`             | ✅    | ✅        | ✅         |
-| [OptionalCoordinateFrame](#optionalcoordinateframe) | `Model.WorldPivotData`          | ✅    | ✅        | ✅         |
-| [PhysicalProperties](#physicalproperties)           | `Part.CustomPhysicalProperties` | ✅    | ✅        | ✅         |
-| [ProtectedString](#protectedstring)                 | `ModuleScript.Source`           | ✅    | ✅        | ✅         |
-| [Ray](#ray)                                         | `RayValue.Value`                | ✅    | ✅        | ✅         |
-| [Rect](#rect)                                       | `ImageButton.SliceCenter`       | ✅    | ✅        | ✅         |
-| [Ref](#ref)                                         | `Model.PrimaryPart`             | ✅    | ✅        | ❌         |
-| [Region3](#region3)                                 | `N/A`                           | ✅    | ✅        | ✅         |
-| [Region3int16](#region3int16)                       | `Terrain.MaxExtents`            | ✅    | ✅        | ✅         |
-| [SharedString](#sharedstring)                       | `N/A`                           | ✅    | ✅        | ❌         |
-| [String](#string)                                   | `Instance.Name`                 | ✅    | ✅        | ✅         |
-| [Tags](#tags)                                       | `Instance.Tags`                 | ✅    | ✅        | ✅         |
-| [UDim](#udim)                                       | `UIListLayout.Padding`          | ✅    | ✅        | ✅         |
-| [UDim2](#udim2)                                     | `Frame.Size`                    | ✅    | ✅        | ✅         |
-| [Vector2](#vector2)                                 | `ImageLabel.ImageRectSize`      | ✅    | ✅        | ✅         |
-| [Vector2int16](#vector2int16)                       | `N/A`                           | ✅    | ✅        | ✅         |
-| [Vector3](#vector3)                                 | `Part.Size`                     | ✅    | ✅        | ✅         |
-| [Vector3int16](#vector3int16)                       | `TerrainRegion.ExtentsMax`      | ✅    | ✅        | ✅         |
-| QDir                                                | `Studio.Auto-Save Path`         | ❌    | ❌        | ❌         |
-| QFont                                               | `Studio.Font`                   | ❌    | ❌        | ❌         |
+<PropertySupport withLinks={true} />
 
 ## Implicit vs Explicit Format
 
@@ -135,12 +98,13 @@ For both implicit and explicit values, the format is a **boolean** value.
 
 ## BrickColor
 
-For both implicit and explicit values, the format is a **string** respresting the [Name](https://developer.roblox.com/en-us/articles/BrickColor-Codes) or an **integer** representing the [Number](https://developer.roblox.com/en-us/articles/BrickColor-Codes) of a BrickColor.
+For both implicit and explicit values, the format is an **integer** representing the [Number](https://developer.roblox.com/en-us/articles/BrickColor-Codes) of a BrickColor. Aditionally for implicit values, the format is a **string** respresting the [Name](https://developer.roblox.com/en-us/articles/BrickColor-Codes) of a BrickColor.
 
 ```json
 {
   "$properties": {
-    "Implicit": "Electric blue",
+    "Implicit1": "Electric blue",
+    "Implicit2": 1032,
     "Explicit": { "BrickColor": 1032 }
   }
 }
@@ -373,7 +337,7 @@ For implicit values, the format is a flat list of NumberSequenceKeypoints. For e
 }
 ```
 
-## OptionalCoordinateFrame
+## OptionalCFrame
 
 For implicit values, the format is a flat list of components. For explicit values, the format is an object with `position` and `orientation` fields. The `position` field is a [Vector3](#vector3).
 
@@ -439,20 +403,20 @@ For both implicit and explicit values, the format is a **string**.
 
 ## Ray
 
-For both implicit and explicit values, the format is an object with `origin` and `direction` fields. Each field is a [Vector3](#vector3).
+For both implicit and explicit values, the format is a list of `origin` and `direction` components. Each component is a [Vector3](#vector3).
 
 ```json
 {
   "$properties": {
-    "Implicit": {
-      "origin": [1, 2, 3],
-      "direction": [4, 5, 6]
-    },
+    "Implicit": [
+      [1, 2, 3],
+      [4, 5, 6]
+    ],
     "Explicit": {
-      "Ray": {
-        "origin": [1.0, 2.0, 3.0],
-        "direction": [4.0, 5.0, 6.0]
-      }
+      "Ray": [
+        [1.0, 2.0, 3.0],
+        [4.0, 5.0, 6.0]
+      ]
     }
   }
 }
@@ -460,20 +424,14 @@ For both implicit and explicit values, the format is an object with `origin` and
 
 ## Rect
 
-For both implicit and explicit values, the format is a list of `Min` and `Max` components, respectively. Each component is a [Vector2](#vector2).
+For both implicit and explicit values, the format is a list of all components. Each component is a **float**.
 
 ```json
 {
   "$properties": {
-    "Explicit": [
-      [0.0, 5.0],
-      [10.0, 15.0]
-    ],
+    "Explicit": [0.0, 5.0, 10.0, 15.0],
     "Explicit": {
-      "Rect": [
-        [0, 5],
-        [10, 15]
-      ]
+      "Rect": [0, 5, 10, 15]
     }
   }
 }
@@ -613,7 +571,7 @@ For both implicit and explicit values, the format is a list of `X` and `Y` compo
 
 ## Vector2int16
 
-For both implicit and explicit values, the format is a list of X and Y components, respectively. Each component is an **integer**.
+For both implicit and explicit values, the format is a list of `X` and `Y` components, respectively. Each component is an **integer**.
 
 ```json
 {
