@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ContentLoader from "react-content-loader"
 import Markdown from "react-markdown"
 
@@ -71,9 +71,19 @@ function Placeholder() {
 export default function Changelog({ link }: { link: string }) {
   const [changelog, setChangelog] = useState(<Placeholder />)
 
-  fetch(link)
-    .then((response) => response.text())
-    .then((text) => setChangelog(<Markdown>{text}</Markdown>))
+  useEffect(() => {
+    fetch(link)
+      .then((response) => response.text())
+      .then((text) => {
+        text = text.substring(text.indexOf("##"))
+
+        if (text.indexOf("###") > 20) {
+          text = text.substring(text.indexOf("##", 2))
+        }
+
+        setChangelog(<Markdown>{text}</Markdown>)
+      })
+  }, [link])
 
   return changelog
 }
