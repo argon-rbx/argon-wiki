@@ -2,7 +2,7 @@
 | ----------------------------------------- | ------------------------------- | --- | ------ | --- | ------ |
 | [Attributes](#attributes)                 | `Instance.Attributes`           | ✅  | ✅     | ✅  | ✅     |
 | [Axes](#axes)                             | `ArcHandles.Axes`               | ✅  | ✅     | ✅  | ✅     |
-| [BinaryString](#binarystring)             | `Terrain.MaterialColors`        | ✅  | ⏺️     | ✅  | ✅     |
+| [BinaryString](#binarystring)             | `BinaryStringValue.Value`       | ✅  | ⏺️     | ✅  | ✅     |
 | [Bool](#bool)                             | `Part.Anchored`                 | ✅  | ✅     | ✅  | ✅     |
 | [BrickColor](#brickcolor)                 | `Part.BrickColor`               | ✅  | ✅     | ✅  | ✅     |
 | Bytecode                                  | `N/A`                           | ❌  | ⛔     | ❌  | ❌     |
@@ -18,6 +18,7 @@
 | [Font](#font)                             | `TextLabel.Font`                | ✅  | ✅     | ✅  | ✅     |
 | [Int32](#int32)                           | `Frame.ZIndex`                  | ✅  | ✅     | ✅  | ✅     |
 | [Int64](#int64)                           | `Player.UserId`                 | ✅  | ✅     | ✅  | ✅     |
+| [MaterialColors](#materialcolors)         | `Terrain.MaterialColors`        | ✅  | ✅     | ✅  | ✅     |
 | [NumberRange](#numberrange)               | `ParticleEmitter.Lifetime`      | ✅  | ✅     | ✅  | ✅     |
 | [NumberSequence](#numbersequence)         | `Beam.Transparency`             | ✅  | ✅     | ✅  | ✅     |
 | [OptionalCFrame](#optionalcframe)         | `Model.WorldPivotData`          | ✅  | ✅     | ✅  | ✅     |

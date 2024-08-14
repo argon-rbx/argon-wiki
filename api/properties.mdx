@@ -253,7 +253,7 @@ For both implicit and explicit values, the format is a **float**.
 
 ## Font
 
-For both implicit and explicit values, the format is an object with `family`, `weight`, and `style` fields. Each component is a **string**.
+For both implicit and explicit values, the format is an object with `family`, `weight`, and `style` fields. Each field is a **string**.
 
 ```json
 {
@@ -296,6 +296,29 @@ For both implicit and explicit values, the format is an **integer**.
   "$properties": {
     "Implicit": 420,
     "Explicit": { "Int64": 1337 }
+  }
+}
+```
+
+## MaterialColors
+
+For both implicit and explicit values, the format is an object with material names as fields. Each field is a [Color3uint8](#color3uint8).
+
+```json
+{
+  "$properties": {
+    "Implicit": {
+      "Grass": [10, 20, 30],
+      "Asphalt": [40, 50, 60],
+      "LeafyGrass": [255, 155, 55]
+    },
+    "Explicit": {
+      "MaterialColors": {
+        "Grass": [10, 20, 30],
+        "Asphalt": [40, 50, 60],
+        "LeafyGrass": [255, 155, 55]
+      }
+    }
   }
 }
 ```
