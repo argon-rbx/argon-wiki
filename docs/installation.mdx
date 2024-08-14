@@ -11,7 +11,7 @@ There are multiple ways to install Argon, all of them are quick and easy!
 - Server - the main part of Argon that runs on your computer
 - Client - the Roblox Studio plugin that connects to the server
 
-## Server Installation
+## Server Installation (CLI)
 
 No matter which method you choose, your system `PATH` variable will update automatically
 
@@ -37,6 +37,10 @@ No matter which method you choose, your system `PATH` variable will update autom
 3. Run `argon.exe` / `argon`
 4. Press <kbd>y</kbd> and done!
 
+:::warning
+On UNIX systems (macOS and Linux) only `bash` and `zsh` shells are currently supported. Make sure you use one of them to let Argon fully install itself!
+:::
+
 </TabItem>
 
 <TabItem label="Aftman" value="aftman">
@@ -47,6 +51,18 @@ Run this command in your terminal:
 
 ```bash
 aftman add argon-rbx/argon --global
+```
+
+</TabItem>
+
+<TabItem label="Rokit" value="rokit">
+
+#### CLI only
+
+Run this command in your terminal:
+
+```bash
+rokit add argon-rbx/argon --global
 ```
 
 </TabItem>
@@ -69,7 +85,7 @@ Not available yet!
 
 </Tabs>
 
-## Client Installation
+## Client Installation (Plugin)
 
 It is **recommended** to skip this step as by default the Argon plugin gets installed automatically with the CLI and VS Code extension. It also enables automatic plugin updates!
 
@@ -94,9 +110,10 @@ It is **recommended** to skip this step as by default the Argon plugin gets inst
 <TabItem label="GitHub" value="github">
 
 1. Get the latest plugin model [here](https://github.com/argon-rbx/argon-roblox/releases/latest)
-2. Place the **.rbxm** file in `%localappdata%/Roblox/Plugins` if you are on Windows
-3. Place the **.rbxm** file in `~/Documents/Roblox/Plugins` if you are on macOS
-4. Restart Roblox Studio and you are done!
+2. Place the **.rbxm** file in:
+   - Windows: `%localappdata%/Roblox/Plugins`
+   - macOS: `~/Library/Application Support/Roblox/Plugins`
+3. Restart Roblox Studio and you are done!
 
 </TabItem>
 
@@ -120,22 +137,32 @@ Or follow these steps if you are using the VS Code extension:
 
 ## Updating
 
-Argon checks for updates and installs them automatically every time you run it. If there is a new version available you will be prompted for confirmation or just notified that the update got installed depending on the settings.
+You don't have to worry about updating Argon as very part of updates automatically!
 
-If you skipped custom client installation Roblox Studio plugin will update automatically as well!
+### CLI
 
-You can force check for updates by running:
+Argon checks for updates and installs them automatically every time you run it (unless you disabled [check_updates](./configuration.mdx#global-config) setting). If there is a new version available you will be prompted for confirmation or just notified that the update got installed (depending on [auto_update](./configuration.mdx#global-config) setting).
+
+### Plugin
+
+If you got Argon plugin from any Roblox source you can enable automatic updates by checking the `Auto Update` checkbox in the `Manage Plugins` tab. If you installed the plugin manually or Argon CLI installed it for you, it will update automatically (unless you disabled [check_updates](./configuration.mdx#global-config) or [install_plugin](./configuration.mdx#global-config) setting).
+
+### VS Code Extension
+
+Visual Studio Code extension updates automatically by default (unless the `Auto Update` in the `Extensions` tab is unchecked).
+
+### Manual Updates
+
+If you want to update or just check for updates manually run:
 
 ```bash
 argon update
 ```
 
-:::warning
+Or when using the VS Code extension:
 
-- In order to make plugin update without restarting Roblox Studio you need to enable **Reload plugins on file changed** setting under File > Studio Settings > Directories
-- Automatic updates are only available if you have installed Argon from GitHub or you are using the VS Code extension
-
-:::
+1. Press <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and select `Argon: Open Menu`
+2. Run `Update` command
 
 ## Limitations
 
@@ -147,6 +174,6 @@ Argon has been designed and compiled for:
 
 Only 64-bit systems are supported!
 
-:::info
+:::note
 There is no separate binary for Windows ARM but the x86 one works just fine thanks to the Windows' translation layer
 :::
