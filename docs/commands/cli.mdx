@@ -147,7 +147,7 @@ argon debug [mode]
 
 Arguments:
 
-- **mode** - debug mode to use (**Play**, **Run**, **Start**, **Stop**), defaults to **Play**
+- **mode** - debug mode to use - `play`, `run`, `start` or `stop` _(optional, defaults to `play`)_
 
 ## Exec
 
@@ -160,7 +160,7 @@ argon exec [code] [session] --options
 Arguments:
 
 - **code** - Luau code to execute, or path to the file with code
-- **session** - name of the session to send code execution request to _(optional)_, defaults to the last session
+- **session** - name of the session to send code execution request to _(optional, defaults to the last session)_
 
 Options:
 
@@ -176,15 +176,12 @@ Options:
 Forcefully check for updates and update Argon CLI or Roblox Studio plugin if available.
 
 ```bash
-argon update
+argon update [mode]
 ```
 
-Options:
+Arguments:
 
-| Short | Long       | Description                                 |
-| ----- | ---------- | ------------------------------------------- |
-| `-c`  | `--cli`    | Update the Argon CLI only (if available)    |
-| `-p`  | `--plugin` | Update the Argon plugin only (if available) |
+- **mode** - whether to update `cli` or `plugin` or `both` _(optional, defaults to `both`)_
 
 ## Plugin
 
@@ -196,7 +193,7 @@ argon plugin [mode] [path]
 
 Arguments:
 
-- **mode** - command mode to use (**install**, **uninstall**)
+- **mode** - whether to `install` or `uninstall` the plugin _(optional, defaults to `install`)_
 - **path** - path where to install or uninstall the plugin _(optional)_
 
 ## Config

@@ -9,18 +9,18 @@ Projects describe how the instance tree should look like and how files should be
 
 Argon projects are JSON files that have the `.project.json` extension. They have the following fields:
 
-| Field           | Description                                                                                           | Default      |
-| --------------- | ----------------------------------------------------------------------------------------------------- | ------------ |
-| `name`          | The name of the project, displayed by Argon                                                           | **Required** |
-| `tree`          | An [Instance Description](#instance-description) describing the root instance of the project          | **Required** |
-| `host`          | The host name that Argon server should be running on                                                  | `localhost`  |
-| `port`          | The port number that Argon server should be running on                                                | `8000`       |
-| `gameId`        | Limit Argon clients to only sync with this project when the game ID matches                           | `null`       |
-| `placeIds`      | Limit Argon clients to only sync with this project when one of the place IDs matches                  | `[]`         |
-| `ignoreGlobs`   | Exclude files that match any of these globs from processing and syncing                               | `[]`         |
-| `syncRules`     | Custom set of user-defined [Sync Rules](#sync-rule) that define how files should be processed         | `[]`         |
-| `syncback`      | [Syncback Settings](#syncback-settings) that control how instances are synced back to the file system | `null`       |
-| `legacyScripts` | Use the legacy script run context                                                                     | `true`       |
+| Field           | Default      | Description                                                                                           |
+| --------------- | ------------ | ----------------------------------------------------------------------------------------------------- |
+| `name`          | **Required** | The name of the project, displayed by Argon                                                           |
+| `tree`          | **Required** | An [Instance Description](#instance-description) describing the root instance of the project          |
+| `host`          | `localhost`  | The host name that Argon server should be running on                                                  |
+| `port`          | `8000`       | The port number that Argon server should be running on                                                |
+| `gameId`        | `null`       | Limit Argon clients to only sync with this project when the game ID matches                           |
+| `placeIds`      | `[]`         | Limit Argon clients to only sync with this project when one of the place IDs matches                  |
+| `ignoreGlobs`   | `[]`         | Exclude files that match any of these globs from processing and syncing                               |
+| `syncRules`     | `[]`         | Custom set of user-defined [Sync Rules](#sync-rule) that define how files should be processed         |
+| `syncback`      | `null`       | [Syncback Settings](#syncback-settings) that control how instances are synced back to the file system |
+| `legacyScripts` | `true`       | Use the legacy script run context                                                                     |
 
 ## Instance Description
 
