@@ -24,13 +24,9 @@ function Placeholder() {
     <ContentLoader
       speed={2}
       viewBox="0 0 420 690"
-      backgroundColor="#2e2c30"
-      foregroundColor="#67676f"
+      backgroundColor="var(--loader-background)"
+      foregroundColor="var(--loader-foreground)"
     >
-      {/* Intro */}
-      <Rect h={12} w={75} />
-      <Rect w={200} />
-      <Rect w={250} />
       {/* Unreleased */}
       <Rect h={12} w={80} o={12} />
       <Rect h={10} w={30} o={6} />

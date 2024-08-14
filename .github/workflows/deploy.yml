@@ -1,9 +1,6 @@
 name: Deploy
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -16,7 +13,6 @@ jobs:
   deploy:
     name: Deploy to Vercel
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'dependabot[bot]' }}
 
     steps:
       - uses: actions/checkout@v2

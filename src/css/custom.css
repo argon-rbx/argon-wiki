@@ -5,6 +5,16 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
+[data-theme="light"] {
+  --loader-background: #ededed;
+  --loader-foreground: #cccccc;
+}
+
+[data-theme="dark"] {
+  --loader-background: #2e2c30;
+  --loader-foreground: #67676f;
+}
+
 .markdown table {
   display: table;
   width: 100%;
