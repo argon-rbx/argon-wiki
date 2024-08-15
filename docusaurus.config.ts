@@ -61,6 +61,16 @@ const config: Config = {
     [
       "content-docs",
       {
+        id: "examples",
+        path: "examples",
+        routeBasePath: "examples",
+        sidebarPath: "./sidebars.ts",
+        editUrl: "https://github.com/argon-rbx/argon-wiki/tree/main",
+      },
+    ],
+    [
+      "content-docs",
+      {
         id: "changelog",
         path: "changelog",
         routeBasePath: "changelog",
@@ -89,6 +99,12 @@ const config: Config = {
           position: "left",
           to: "/api/project",
           activeBaseRegex: "/api/",
+        },
+        {
+          label: "Examples",
+          position: "left",
+          to: "/examples/place",
+          activeBaseRegex: "/examples/",
         },
         {
           label: "Changelog",

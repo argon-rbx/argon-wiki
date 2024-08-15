@@ -71,12 +71,15 @@ Example project of a plugin or model:
   "name": "Plugin",
   "ignoreGlobs": ["**/*.spec.lua"],
   "tree": {
-    "$path": "src"
+    "$path": "src",
+    "manifest": {
+      "$path": "wally.toml"
+    }
   }
 }
 ```
 
-Example project of the game:
+Example project of a game:
 
 ```json
 {
