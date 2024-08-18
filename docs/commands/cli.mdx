@@ -121,7 +121,7 @@ Options:
 
 ## Studio
 
-Launch a new instance of Roblox Studio or open place file directly from the command line.
+Launch a new Roblox Studio instance or open place file directly from the command line.
 
 ```bash
 argon studio [path] --options
@@ -173,7 +173,7 @@ Options:
 
 ## Update
 
-Forcefully check for updates and update Argon CLI or Roblox Studio plugin if available.
+Forcefully check for updates and update Argon components if available.
 
 ```bash
 argon update [mode]
@@ -181,7 +181,7 @@ argon update [mode]
 
 Arguments:
 
-- **mode** - whether to update `cli` or `plugin` or `both` _(optional, defaults to `both`)_
+- **mode** - whether to update `cli`, `plugin`, `templates` or `all` _(optional, defaults to `all`)_
 
 ## Plugin
 
@@ -198,7 +198,7 @@ Arguments:
 
 ## Config
 
-Edit [Global Configuration](../configuration.mdx#global-config) directory from the command line or using the default editor.
+Edit [Global](../configuration.mdx#global-config) or [Workspace](../configuration.mdx#workspace-config) configuration directory from the command line or using the default editor.
 
 ```bash
 argon config [setting] [value] --options

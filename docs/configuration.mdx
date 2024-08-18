@@ -50,6 +50,14 @@ And can have the following settings:
 | move_to_bin     | `false`      | Controls whether to move files to the system bin instead of permanently deleting them (only applies when syncing changes from Roblox Studio to the file system)                                                                                                                                                                                                                                   |
 | share_stats     | `true`       | Toggles sharing of anonymous Argon usage statistics which are displayed on the [argon.wiki](https://argon.wiki/) home page to show the size of the Argon community                                                                                                                                                                                                                                |
 
+### Workspace Config
+
+Works exactly the same as the [Global Config](#global-config) but is specified at workspace level. To initialize one you need to create `argon.toml` file in the root of your project (right next to the [Project File](/api/project#project-file)). If workspace config exists, it will override the global one.
+
+:::note
+Argon will only be able to load workspace config if it exists in the current working directory or parent directory of the `PROJECT` argument (only applies to `init`, `serve`, `build` and `sourcemap` commands)
+:::
+
 ## Argon Plugin
 
 Argon Roblox Studio plugin is configurable through the settings menu that can be accessed by clicking on the gear icon in the main plugin window. At the very top you can control whether to toggle settings on the:
