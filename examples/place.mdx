@@ -48,12 +48,12 @@ root
 │   ├── Client
 │   │   ├── Loader.client.luau
 │   │   └── Controller
-│   │       ├── .src.client.lua
-│   │       ├── Camera.client.lua
-│   │       └── Input.client.lua
+│   │       ├── .src.client.luau
+│   │       ├── Camera.luau
+│   │       └── Input.luau
 │   │
 │   ├── Server
-│   │   ├── Main.server.luau
+│   │   ├── Main.server.lua
 │   │   └── Test.server.lua
 │   │
 │   └── Shared
@@ -66,8 +66,10 @@ root
 │       │
 │       ├── Assets.json
 │       ├── Keybinds.toml
-│       └── Utils.luau
+│       └── Utils.lua
 │
+├── .gitignore
+├── README.md
 ├── default.project.json
 └── wally.toml
 ```
@@ -76,53 +78,34 @@ root
 
 And this is how the game looks like in Roblox Studio after Argon processing.
 
-```mermaid
-graph TD;
-  game(DataModel)
-    SP(StarterPlayer)
-      SPS(StarterPlayerScripts)
-        src(Client)
-          loader("Loader (LocalScript)")
-          controller("Controller (LocalScript)")
-            camera("Camera (ModuleScript)")
-            input("Input (ModuleScript)")
-    SSS(ServerScriptService)
-      main(Main.server)
-      test(Test.server)
-    RS(ReplicatedStorage)
-      models("Models (Folder)")
-        clickable("Clickable (ClickDetector)")
-          handler("Handler (Script)")
-        car("Car (Part)")
-      packages("Packages (Folder)")
-      assets("Assets (ModuleScript)")
-      keybinds("Keybinds (ModuleScript)")
-      utils("Utils (ModuleScript)")
-
-
-
-game --> SP
-  SP --> SPS
-    SPS --> src
-      src --> loader
-      src --> controller
-        controller --> source
-        controller --> camera
-        controller --> input
-game --> SSS
-  SSS --> main
-  SSS --> test
-game --> RS
-  RS --> models
-    models --> clickable
-      clickable --> handler
-    models --> car
-  RS --> packages
-  RS --> assets
-  RS --> keybinds
-  RS --> utils
+```txt
+game
+│
+├── StarterPlayer
+│   └── StarterPlayerScripts
+│       ├── Loader (LocalScript)
+│       └── Controller (LocalScript)
+│           ├── Camera (ModuleScript)
+│           └── Input (ModuleScript)
+│
+├── ServerScriptService
+│   ├── Main (Script)
+│   └── Test (Script)
+│
+└── ReplicatedStorage
+    ├── Models (Folder)
+    │   ├── Clickable (ClickDetector)
+    │   │   └── Handler (Script)
+    │   │
+    │   └── Car (Part)
+    │       └── Spray (Highlight)
+    │
+    ├── Packages (Folder)
+    ├── Assets (ModuleScript)
+    ├── Keybinds (ModuleScript)
+    └── Utils (ModuleScript)
 ```
 
 ## Source Code
 
-See this example with all source files in this GitHub [repository](TODO).
+See this example with all source files in this [repository](https://github.com/argon-rbx/examples/place).
