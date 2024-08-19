@@ -22,6 +22,16 @@ Argon projects are JSON files that have the `.project.json` extension. They have
 | `syncback`      | `null`       | [Syncback Settings](#syncback-settings) that control how instances are synced back to the file system |
 | `legacyScripts` | `true`       | Use the legacy script run context                                                                     |
 
+### Rojo Compatibility
+
+Argon is 100% compatible with Rojo projects with the exception of the `placeId` field which should be moved to the `placeIds` array. Although some field names differ from Rojo ones, they work the same way and are interchangeable:
+
+- `serveAddress` == `host`
+- `servePort` == `port`
+- `servePlaceIds` == `placeIds`
+- `globIgnorePaths` == `ignoreGlobs`
+- `emitLegacyScripts` == `legacyScripts`
+
 ## Instance Description
 
 Instance Descriptions correspond to the actual Roblox Instances in the project.
