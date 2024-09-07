@@ -8,6 +8,7 @@
 Argon's official website is built using [Docusaurus](https://docusaurus.io/) and deployed on [Vercel](https://vercel.com/).
 
 - [Home Page](https://argon.wiki/)
-  - [Docs](https://argon.wiki/docs/intro)
-  - [API](https://argon.wiki/api/project)
-  - [Changelog](https://argon.wiki/changelog/argon)
+  - [Docs](https://argon.wiki/docs)
+  - [API](https://argon.wiki/api)
+  - [Examples](https://argon.wiki/examples)
+  - [Changelog](https://argon.wiki/changelog)
