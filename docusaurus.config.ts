@@ -176,7 +176,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Dervex. Built with Docusaurus. Background video by Roblox.`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://dervex.dev/">Dervex</a>. Built with Docusaurus. Background video by Roblox.`,
     },
 
     prism: {
