@@ -80,6 +80,10 @@ const config: Config = {
   ],
 
   themeConfig: {
+    colorMode: {
+      respectPrefersColorScheme: true,
+    },
+
     image: "img/logo.svg",
 
     navbar: {
