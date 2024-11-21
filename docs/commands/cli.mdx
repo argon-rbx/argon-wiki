@@ -173,15 +173,21 @@ Options:
 
 ## Update
 
-Forcefully check for updates and update Argon components if available.
+Manually check for updates and update Argon components if available.
 
 ```bash
-argon update [mode]
+argon update [mode] --options
 ```
 
 Arguments:
 
 - **mode** - whether to update `cli`, `plugin`, `templates` or `all` _(optional, defaults to `all`)_
+
+Options:
+
+| Short | Long      | Description                                                         |
+| ----- | --------- | ------------------------------------------------------------------- |
+| `-f`  | `--force` | Whether to force update even if there is no newer version available |
 
 ## Plugin
 
