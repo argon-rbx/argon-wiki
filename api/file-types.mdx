@@ -22,6 +22,7 @@ Argon supports various file types, here is how they are transformed into Roblox 
 | [TOML Module](#toml-module)               | `*.toml`                         |
 | [YAML Module](#yaml-module)               | `*.yaml` / `*.yml`               |
 | [MessagePack Module](#messagepack-module) | `*.msgpack`                      |
+| [Markdown](#markdown)                     | `*.md`                           |
 | [Plain Text](#plain-text)                 | `*.txt`                          |
 | [Localization Table](#localization-table) | `*.csv`                          |
 | [Project](#project)                       | `*.project.json`                 |
@@ -328,9 +329,43 @@ Thanks to its easy syntax, YAML files are great as configuration files as well.
 
 Any file with the `msgpack` extension will be turned into a `ModuleScript` that returns a table representing the same structure as the original file. [MessagePack](https://msgpack.org/index.html) is a binary format so it's fast and small but it's not human-readable. It is great for storing large amounts of data that don't need to be edited by hand.
 
+## Markdown
+
+Any file with the `md` extension is transformed into a `StringValue` instance containing Markdown translated to [Rich Text Markup](https://create.roblox.com/docs/ui/rich-text). Example Markdown file:
+
+```
+# Heading
+
+> Block quote
+
+- Unordered list item A
+- Unordered list item B
+
+1. Ordered list item A
+2. Ordered list item B
+
+Some **Bold** text, with addition of _italic_ and `code`
+```
+
+Would become a `StringValue` with the following `Value`:
+
+```
+<b>Heading</b>
+
+<i>Block quote</i>
+
+<b>•</b> Unordered list item A
+<b>•</b> Unordered list item B
+
+1. Ordered list item A
+2. Ordered list item B
+
+Some <b>Bold</b> text, with addition of <i>italic</i> and <font family='rbxasset://fonts/families/RobotoMono.json'>code</font>
+```
+
 ## Plain Text
 
-Any file with the `txt` extension is transformed into a `StringValue` instance with its `Value` property set. Example:
+Any file with the `txt` extension is transformed into a `StringValue` instance with its `Value` property set to the file contents. Example text file:
 
 ```txt
 Hello world!
