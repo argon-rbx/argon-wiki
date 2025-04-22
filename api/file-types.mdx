@@ -26,11 +26,11 @@ Argon supports various file types, here is how they are transformed into Roblox 
 | [Plain Text](#plain-text)                 | `*.txt`                          |
 | [Localization Table](#localization-table) | `*.csv`                          |
 | [Project](#project)                       | `*.project.json`                 |
-| [Data File](#data-file)                   | `*.data.json` / `.data.json`     |
+| [Data File](#data-file)                   | `*.meta.json`                    |
 
 ## Instances with Children
 
-All mentioned file types can contain children. To do so you have to create a folder with the desired name and add `.src` or `init` file with the suffix based on the desired file type inside that folder. The only exceptions are: [Project](#project) whose immediate children are ignored and [Data File](#data-file) which is used to describe instance. Here are some examples:
+All mentioned file types can contain children. To do so you have to create a folder with the desired name and add `init` file with the suffix based on the desired file type inside that folder. The only exceptions are: [Project](#project) whose immediate children are ignored and [Data File](#data-file) which is used to describe instance. Here are some examples:
 
 ### Instance + Children
 
@@ -45,11 +45,11 @@ All mentioned file types can contain children. To do so you have to create a fol
 ```mermaid
 graph TD;
   foo(Foo/)
-  .src(.src.server.lua)
+  init(init.server.lua)
   bar(Bar.client.lua)
   baz(Baz.lua)
 
-foo --> .src
+foo --> init
 foo --> bar
 foo --> baz
 
@@ -84,11 +84,11 @@ graph TD;
 ```mermaid
 graph TD;
   foo(Foo/)
-  .data(.data.lua)
+  init(init.meta.lua)
   bar(Bar.txt)
   baz(Baz.csv)
 
-foo --> .data
+foo --> init
 foo --> bar
 foo --> baz
 
@@ -124,11 +124,11 @@ graph TD;
 graph TD;
   foo(Foo/)
   bar(Bar.json)
-  bar.data(Bar.data.json)
+  bar.meta(Bar.meta.json)
   baz(Baz.toml)
 
 foo --> bar
-foo --> bar.data
+foo --> bar.meta
 foo --> baz
 
 ````
@@ -150,7 +150,7 @@ graph TD;
 </table>
 
 :::danger
-Only one `.src` / `init` file and one `.data` / `init.meta` can be present in the same folder!
+Only one `init` and one `init.meta` file can be present in the same folder!
 :::
 
 ## Folder
@@ -392,7 +392,7 @@ Projects that are intended to be included inside other projects should describe 
 
 ## Data File
 
-File ending with `.data.json` is considered data file which can specify:
+File ending with `.meta.json` is considered data file which can specify:
 
 - `className`: Sets the `ClassName` of a containing `Folder` instance
 - `properties`: A map of properties to apply on the instance
