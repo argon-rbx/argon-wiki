@@ -7,7 +7,7 @@ const coverage: string = require("!!raw-loader!./PropertyCoverage.md")?.default
 export default function PropertySupport({ withLinks }: { withLinks: boolean }) {
   const [state, setState] = useState(coverage)
 
-  fetch("https://raw.githubusercontent.com/argon-rbx/rbx-dom/master/README.md")
+  fetch("https://raw.githubusercontent.com/argon-rbx/rbx-dom/argon/README.md")
     .then((response) => response.text())
     .then((text) => {
       text = text.substring(text.indexOf("Coverage") + 10)
