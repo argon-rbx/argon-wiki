@@ -72,15 +72,17 @@ svg .cls-2 {
   /* Hit */
   --docsearch-hit-color: var(--ifm-font-color-base);
   --docsearch-hit-active-color: var(--ifm-color-white);
-  --docsearch-hit-background: var(--ifm-color-emphasis-100);
+  --docsearch-hit-background: var(--ifm-background-surface-color);
   /* Footer */
   --docsearch-footer-background: var(--ifm-background-surface-color);
 }
 
 [data-theme="light"] .DocSearch {
+  --docsearch-subtle-color: var(--ifm-color-emphasis-300);
   --docsearch-hit-highlight-color: var(--ifm-color-primary-lightest);
 }
 
 [data-theme="dark"] .DocSearch {
+  --docsearch-subtle-color: var(--ifm-color-emphasis-200);
   --docsearch-hit-highlight-color: var(--ifm-color-primary-darkest);
 }
