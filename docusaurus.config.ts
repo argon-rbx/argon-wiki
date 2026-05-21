@@ -138,6 +138,10 @@ const config: Config = {
               label: "Installation",
               to: "/docs/installation",
             },
+            {
+              label: "Getting Started",
+              to: "/docs/category/getting-started",
+            },
           ],
         },
         {
@@ -150,6 +154,10 @@ const config: Config = {
             {
               label: "File Types",
               to: "/api/file-types",
+            },
+            {
+              label: "Properties",
+              to: "/api/properties",
             },
           ],
         },
@@ -164,6 +172,10 @@ const config: Config = {
               label: "Discussions",
               href: "https://github.com/argon-rbx/argon/discussions",
             },
+            {
+              label: "OSS Discord",
+              href: "https://discord.gg/Qm3JNyEc32",
+            },
           ],
         },
         {
@@ -177,6 +189,10 @@ const config: Config = {
               label: "VS Marketplace",
               href: "https://marketplace.visualstudio.com/items?itemName=Dervex.argon",
             },
+            {
+              label: "Open VSX Registry",
+              href: "https://open-vsx.org/extension/Dervex/argon",
+            },
           ],
         },
       ],
@@ -184,8 +200,17 @@ const config: Config = {
     },
 
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: prismThemes.oneLight,
+      darkTheme: prismThemes.oneDark,
+      additionalLanguages: [
+        "bash",
+        "csv",
+        "json",
+        "lua",
+        "markdown",
+        "toml",
+        "yaml",
+      ],
     },
 
     algolia: {
